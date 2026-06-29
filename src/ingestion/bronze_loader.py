@@ -18,8 +18,7 @@ tables = [
 bronze_path = Path("data/bronze")
 
 for table in tables:
-
-    print(f"Loading {table}...")
+    print(f"\nLoading {table}...")
 
     df = (
         spark.read
@@ -32,10 +31,14 @@ for table in tables:
         .load()
     )
 
-    df.write \
-        .mode("overwrite") \
-        .parquet(str(bronze_path / table))
+    print(f"Rows: {df.count()}")
 
-    print(f"Saved {table}")
+    (
+        df.write
+        .mode("overwrite")
+        .parquet(str(bronze_path / table))
+    )
+
+    print(f"Saved to data/bronze/{table}")
 
 spark.stop()
