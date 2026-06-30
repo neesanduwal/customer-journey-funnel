@@ -1,0 +1,134 @@
+{
+  "format-version" : 2,
+  "table-uuid" : "1cc9d0d2-1a4e-4885-89ec-2dcdd39f069b",
+  "location" : "warehouse/gold/gold_daily_funnel",
+  "last-sequence-number" : 1,
+  "last-updated-ms" : 1782789277964,
+  "last-column-id" : 14,
+  "current-schema-id" : 0,
+  "schemas" : [ {
+    "type" : "struct",
+    "schema-id" : 0,
+    "fields" : [ {
+      "id" : 1,
+      "name" : "date_key",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 2,
+      "name" : "full_date",
+      "required" : false,
+      "type" : "date"
+    }, {
+      "id" : 3,
+      "name" : "day_of_week",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 4,
+      "name" : "day_name",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 5,
+      "name" : "week_of_year",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 6,
+      "name" : "month",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 7,
+      "name" : "month_name",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 8,
+      "name" : "quarter",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 9,
+      "name" : "year",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 10,
+      "name" : "is_weekend",
+      "required" : false,
+      "type" : "boolean"
+    }, {
+      "id" : 11,
+      "name" : "sessions",
+      "required" : false,
+      "type" : "long"
+    }, {
+      "id" : 12,
+      "name" : "leads",
+      "required" : false,
+      "type" : "long"
+    }, {
+      "id" : 13,
+      "name" : "orders",
+      "required" : false,
+      "type" : "long"
+    }, {
+      "id" : 14,
+      "name" : "revenue",
+      "required" : false,
+      "type" : "decimal(22, 2)"
+    } ]
+  } ],
+  "default-spec-id" : 0,
+  "partition-specs" : [ {
+    "spec-id" : 0,
+    "fields" : [ ]
+  } ],
+  "last-partition-id" : 999,
+  "default-sort-order-id" : 0,
+  "sort-orders" : [ {
+    "order-id" : 0,
+    "fields" : [ ]
+  } ],
+  "properties" : {
+    "owner" : "nishan.duwal",
+    "write.parquet.compression-codec" : "zstd"
+  },
+  "current-snapshot-id" : 3516050576561145069,
+  "refs" : {
+    "main" : {
+      "snapshot-id" : 3516050576561145069,
+      "type" : "branch"
+    }
+  },
+  "snapshots" : [ {
+    "sequence-number" : 1,
+    "snapshot-id" : 3516050576561145069,
+    "timestamp-ms" : 1782789277964,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1782789258476",
+      "added-data-files" : "1",
+      "added-records" : "733",
+      "added-files-size" : "11156",
+      "changed-partition-count" : "1",
+      "total-records" : "733",
+      "total-files-size" : "11156",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/gold/gold_daily_funnel/metadata/snap-3516050576561145069-1-5ed8e18a-cd1b-4b2b-a835-a1c348060a3e.avro",
+    "schema-id" : 0
+  } ],
+  "statistics" : [ ],
+  "partition-statistics" : [ ],
+  "snapshot-log" : [ {
+    "timestamp-ms" : 1782789277964,
+    "snapshot-id" : 3516050576561145069
+  } ],
+  "metadata-log" : [ ]
+}

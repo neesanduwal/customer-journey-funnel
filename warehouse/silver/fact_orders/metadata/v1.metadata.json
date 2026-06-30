@@ -1,0 +1,114 @@
+{
+  "format-version" : 2,
+  "table-uuid" : "da71f8ed-94f2-4654-9520-cee2580e00b2",
+  "location" : "warehouse/silver/fact_orders",
+  "last-sequence-number" : 1,
+  "last-updated-ms" : 1782789112317,
+  "last-column-id" : 10,
+  "current-schema-id" : 0,
+  "schemas" : [ {
+    "type" : "struct",
+    "schema-id" : 0,
+    "fields" : [ {
+      "id" : 1,
+      "name" : "order_line_key",
+      "required" : false,
+      "type" : "long"
+    }, {
+      "id" : 2,
+      "name" : "order_id",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 3,
+      "name" : "date_key",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 4,
+      "name" : "customer_key",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 5,
+      "name" : "channel_key",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 6,
+      "name" : "product_key",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 7,
+      "name" : "quantity",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 8,
+      "name" : "unit_price",
+      "required" : false,
+      "type" : "decimal(10, 2)"
+    }, {
+      "id" : 9,
+      "name" : "revenue",
+      "required" : false,
+      "type" : "decimal(12, 2)"
+    }, {
+      "id" : 10,
+      "name" : "order_status",
+      "required" : false,
+      "type" : "string"
+    } ]
+  } ],
+  "default-spec-id" : 0,
+  "partition-specs" : [ {
+    "spec-id" : 0,
+    "fields" : [ ]
+  } ],
+  "last-partition-id" : 999,
+  "default-sort-order-id" : 0,
+  "sort-orders" : [ {
+    "order-id" : 0,
+    "fields" : [ ]
+  } ],
+  "properties" : {
+    "owner" : "nishan.duwal",
+    "write.parquet.compression-codec" : "zstd"
+  },
+  "current-snapshot-id" : 4185419323408336267,
+  "refs" : {
+    "main" : {
+      "snapshot-id" : 4185419323408336267,
+      "type" : "branch"
+    }
+  },
+  "snapshots" : [ {
+    "sequence-number" : 1,
+    "snapshot-id" : 4185419323408336267,
+    "timestamp-ms" : 1782789112317,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1782789101008",
+      "added-data-files" : "1",
+      "added-records" : "106",
+      "added-files-size" : "4495",
+      "changed-partition-count" : "1",
+      "total-records" : "106",
+      "total-files-size" : "4495",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/silver/fact_orders/metadata/snap-4185419323408336267-1-32190295-0f3a-4580-9214-d9d62507bc46.avro",
+    "schema-id" : 0
+  } ],
+  "statistics" : [ ],
+  "partition-statistics" : [ ],
+  "snapshot-log" : [ {
+    "timestamp-ms" : 1782789112317,
+    "snapshot-id" : 4185419323408336267
+  } ],
+  "metadata-log" : [ ]
+}

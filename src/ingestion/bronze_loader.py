@@ -1,5 +1,3 @@
-from pathlib import Path
-
 from src.config.spark_session import create_spark_session
 from src.config.postgres import DB_CONFIG
 
@@ -15,10 +13,11 @@ tables = [
     "fact_orders"
 ]
 
-bronze_path = Path("data/bronze")
+# Create Bronze namespace if it doesn't exist
+spark.sql("CREATE NAMESPACE IF NOT EXISTS local.bronze")
 
 for table in tables:
-    print(f"\nLoading {table}...")
+    print(f"\nLoading {table} from PostgreSQL...")
 
     df = (
         spark.read
@@ -33,12 +32,17 @@ for table in tables:
 
     print(f"Rows: {df.count()}")
 
+    # Write as Iceberg table
     (
-        df.write
-        .mode("overwrite")
-        .parquet(str(bronze_path / table))
+        df.writeTo(f"local.bronze.{table}")
+        .using("iceberg")
+        .createOrReplace()
     )
 
-    print(f"Saved to data/bronze/{table}")
+    print(f"✓ Created Iceberg table: local.bronze.{table}")
+
+print("\n==============================")
+print("BRONZE LAYER CREATED")
+print("==============================")
 
 spark.stop()

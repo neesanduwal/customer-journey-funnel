@@ -1,0 +1,99 @@
+{
+  "format-version" : 2,
+  "table-uuid" : "fe264c96-32dc-4d02-9362-ae18e8e7d1d0",
+  "location" : "warehouse/gold/gold_channel_performance",
+  "last-sequence-number" : 1,
+  "last-updated-ms" : 1782789275069,
+  "last-column-id" : 7,
+  "current-schema-id" : 0,
+  "schemas" : [ {
+    "type" : "struct",
+    "schema-id" : 0,
+    "fields" : [ {
+      "id" : 1,
+      "name" : "channel_key",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 2,
+      "name" : "channel_name",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 3,
+      "name" : "channel_category",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 4,
+      "name" : "sessions",
+      "required" : false,
+      "type" : "long"
+    }, {
+      "id" : 5,
+      "name" : "leads",
+      "required" : false,
+      "type" : "long"
+    }, {
+      "id" : 6,
+      "name" : "orders",
+      "required" : false,
+      "type" : "long"
+    }, {
+      "id" : 7,
+      "name" : "revenue",
+      "required" : false,
+      "type" : "decimal(22, 2)"
+    } ]
+  } ],
+  "default-spec-id" : 0,
+  "partition-specs" : [ {
+    "spec-id" : 0,
+    "fields" : [ ]
+  } ],
+  "last-partition-id" : 999,
+  "default-sort-order-id" : 0,
+  "sort-orders" : [ {
+    "order-id" : 0,
+    "fields" : [ ]
+  } ],
+  "properties" : {
+    "owner" : "nishan.duwal",
+    "write.parquet.compression-codec" : "zstd"
+  },
+  "current-snapshot-id" : 1590630228344738984,
+  "refs" : {
+    "main" : {
+      "snapshot-id" : 1590630228344738984,
+      "type" : "branch"
+    }
+  },
+  "snapshots" : [ {
+    "sequence-number" : 1,
+    "snapshot-id" : 1590630228344738984,
+    "timestamp-ms" : 1782789275069,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1782789258476",
+      "added-data-files" : "1",
+      "added-records" : "5",
+      "added-files-size" : "2191",
+      "changed-partition-count" : "1",
+      "total-records" : "5",
+      "total-files-size" : "2191",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/gold/gold_channel_performance/metadata/snap-1590630228344738984-1-a3d40058-f8ee-481a-bf98-2ed3bc74784a.avro",
+    "schema-id" : 0
+  } ],
+  "statistics" : [ ],
+  "partition-statistics" : [ ],
+  "snapshot-log" : [ {
+    "timestamp-ms" : 1782789275069,
+    "snapshot-id" : 1590630228344738984
+  } ],
+  "metadata-log" : [ ]
+}

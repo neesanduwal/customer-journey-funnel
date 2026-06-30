@@ -3,6 +3,9 @@ from pyspark.sql.functions import col, trim
 
 spark = create_spark_session()
 
+# Create Silver namespace if it doesn't exist
+spark.sql("CREATE NAMESPACE IF NOT EXISTS local.silver")
+
 TABLES = [
     "dim_customer",
     "dim_channel",
@@ -14,9 +17,10 @@ TABLES = [
 ]
 
 for table in TABLES:
-    print(f"\nLoading {table}...")
+    print(f"\nLoading {table} from Bronze Iceberg...")
 
-    df = spark.read.parquet(f"data/bronze/{table}")
+    # Read from Bronze Iceberg
+    df = spark.table(f"local.bronze.{table}")
 
     # Remove duplicate rows
     df = df.dropDuplicates()
@@ -54,12 +58,17 @@ for table in TABLES:
               .filter(col("revenue") > 0)
         )
 
-    # ---------------------------------------------
+    # Write to Silver Iceberg
+    (
+        df.writeTo(f"local.silver.{table}")
+        .using("iceberg")
+        .createOrReplace()
+    )
 
-    df.write.mode("overwrite").parquet(f"data/silver/{table}")
+    print(f"✓ Created Iceberg table: local.silver.{table}")
 
-    print(f"✓ Saved {table}")
+print("\n==============================")
+print("SILVER LAYER CREATED")
+print("==============================")
 
 spark.stop()
-
-print("\nSilver Layer Completed Successfully!")
