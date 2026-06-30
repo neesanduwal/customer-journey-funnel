@@ -1,12 +1,12 @@
 from src.config.spark_session import create_spark_session
-from pyspark.sql.functions import (
-    countDistinct,
-    sum
-)
+from pyspark.sql.functions import countDistinct, sum, coalesce, lit
 
 spark = create_spark_session()
 
-# Create Gold namespace if it doesn't exist
+# ============================================================
+# Create Gold Namespace
+# ============================================================
+
 spark.sql("CREATE NAMESPACE IF NOT EXISTS local.gold")
 
 print("Reading Silver Iceberg tables...")
@@ -23,29 +23,48 @@ orders = spark.table("local.silver.fact_orders")
 print("Silver tables loaded.")
 
 # ============================================================
+# CUSTOMER AGGREGATES
+# ============================================================
+
+web_customer = (
+    web.groupBy("customer_key")
+    .agg(
+        countDistinct("session_id").alias("website_sessions")
+    )
+)
+
+lead_customer = (
+    leads.groupBy("customer_key")
+    .agg(
+        countDistinct("lead_id").alias("total_leads")
+    )
+)
+
+order_customer = (
+    orders.groupBy("customer_key")
+    .agg(
+        countDistinct("order_id").alias("total_orders"),
+        sum("revenue").alias("total_revenue")
+    )
+)
+
+# ============================================================
 # GOLD 1 - CUSTOMER FUNNEL
 # ============================================================
 
 print("\nCreating gold_customer_funnel...")
 
 gold_customer_funnel = (
-    customers.alias("c")
-    .join(web.alias("w"), "customer_key", "left")
-    .join(leads.alias("l"), "customer_key", "left")
-    .join(orders.alias("o"), "customer_key", "left")
-    .groupBy(
-        "customer_key",
-        "customer_id",
-        "customer_name",
-        "segment",
-        "region"
-    )
-    .agg(
-        countDistinct("w.session_id").alias("website_sessions"),
-        countDistinct("l.lead_id").alias("total_leads"),
-        countDistinct("o.order_id").alias("total_orders"),
-        sum("o.revenue").alias("total_revenue")
-    )
+    customers
+    .join(web_customer, "customer_key", "left")
+    .join(lead_customer, "customer_key", "left")
+    .join(order_customer, "customer_key", "left")
+    .fillna({
+        "website_sessions": 0,
+        "total_leads": 0,
+        "total_orders": 0,
+        "total_revenue": 0
+    })
 )
 
 (
@@ -57,27 +76,48 @@ gold_customer_funnel = (
 print("✓ gold_customer_funnel created")
 
 # ============================================================
+# CHANNEL AGGREGATES
+# ============================================================
+
+web_channel = (
+    web.groupBy("channel_key")
+    .agg(
+        countDistinct("session_id").alias("sessions")
+    )
+)
+
+lead_channel = (
+    leads.groupBy("channel_key")
+    .agg(
+        countDistinct("lead_id").alias("leads")
+    )
+)
+
+order_channel = (
+    orders.groupBy("channel_key")
+    .agg(
+        countDistinct("order_id").alias("orders"),
+        sum("revenue").alias("revenue")
+    )
+)
+
+# ============================================================
 # GOLD 2 - CHANNEL PERFORMANCE
 # ============================================================
 
 print("\nCreating gold_channel_performance...")
 
 gold_channel_performance = (
-    channels.alias("c")
-    .join(web.alias("w"), "channel_key", "left")
-    .join(leads.alias("l"), "channel_key", "left")
-    .join(orders.alias("o"), "channel_key", "left")
-    .groupBy(
-        "channel_key",
-        "channel_name",
-        "channel_category"
-    )
-    .agg(
-        countDistinct("w.session_id").alias("sessions"),
-        countDistinct("l.lead_id").alias("leads"),
-        countDistinct("o.order_id").alias("orders"),
-        sum("o.revenue").alias("revenue")
-    )
+    channels
+    .join(web_channel, "channel_key", "left")
+    .join(lead_channel, "channel_key", "left")
+    .join(order_channel, "channel_key", "left")
+    .fillna({
+        "sessions": 0,
+        "leads": 0,
+        "orders": 0,
+        "revenue": 0
+    })
 )
 
 (
@@ -95,7 +135,8 @@ print("✓ gold_channel_performance created")
 print("\nCreating gold_product_sales...")
 
 gold_product_sales = (
-    orders.join(products, "product_key")
+    orders
+    .join(products, "product_key")
     .groupBy(
         "product_key",
         "product_name",
@@ -117,10 +158,8 @@ gold_product_sales = (
 print("✓ gold_product_sales created")
 
 # ============================================================
-# GOLD 4 - DAILY FUNNEL
+# DAILY AGGREGATES
 # ============================================================
-
-print("\nCreating gold_daily_funnel...")
 
 daily_web = (
     web.groupBy("date_key")
@@ -144,11 +183,23 @@ daily_orders = (
     )
 )
 
+# ============================================================
+# GOLD 4 - DAILY FUNNEL
+# ============================================================
+
+print("\nCreating gold_daily_funnel...")
+
 gold_daily_funnel = (
     dates
     .join(daily_web, "date_key", "left")
     .join(daily_leads, "date_key", "left")
     .join(daily_orders, "date_key", "left")
+    .fillna({
+        "sessions": 0,
+        "leads": 0,
+        "orders": 0,
+        "revenue": 0
+    })
 )
 
 (

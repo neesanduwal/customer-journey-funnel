@@ -5,9 +5,33 @@ def create_spark_session():
     spark = (
         SparkSession.builder
         .appName("Customer Journey Funnel")
-        .master("local[*]")
 
-        # PostgreSQL
+        # Run Spark in single-thread mode
+        .master("local[1]")
+
+        # Memory
+        .config("spark.driver.memory", "3g")
+        .config("spark.driver.maxResultSize", "1g")
+
+        # Reduce parallelism
+        .config("spark.default.parallelism", "1")
+        .config("spark.sql.shuffle.partitions", "1")
+
+        # Disable adaptive execution
+        .config("spark.sql.adaptive.enabled", "false")
+
+        # Disable whole-stage code generation
+        .config("spark.sql.codegen.wholeStage", "false")
+
+        # Java options
+        .config(
+            "spark.driver.extraJavaOptions",
+            "-XX:-TieredCompilation "
+            "-XX:+UseSerialGC "
+            "-Xss4m"
+        )
+
+        # JDBC + Iceberg
         .config(
             "spark.jars.packages",
             ",".join([
@@ -16,7 +40,7 @@ def create_spark_session():
             ])
         )
 
-        # Iceberg Catalog
+        # Iceberg
         .config(
             "spark.sql.extensions",
             "org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions"

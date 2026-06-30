@@ -3,7 +3,7 @@ from pyspark.sql.functions import col, trim
 
 spark = create_spark_session()
 
-# Create Silver namespace if it doesn't exist
+# Create Silver namespace
 spark.sql("CREATE NAMESPACE IF NOT EXISTS local.silver")
 
 TABLES = [
@@ -17,15 +17,16 @@ TABLES = [
 ]
 
 for table in TABLES:
+
     print(f"\nLoading {table} from Bronze Iceberg...")
 
-    # Read from Bronze Iceberg
+    # Read Bronze table
     df = spark.table(f"local.bronze.{table}")
 
-    # Remove duplicate rows
-    df = df.dropDuplicates()
+    # ----------------------------
+    # Cleaning
+    # ----------------------------
 
-    # ---------- Table-specific cleaning ----------
     if table == "dim_customer":
         df = (
             df.withColumn("customer_name", trim(col("customer_name")))
@@ -47,10 +48,14 @@ for table in TABLES:
         )
 
     elif table == "fact_web_events":
-        df = df.dropna(subset=["customer_key", "date_key"])
+        df = (
+            df.dropna(subset=["customer_key", "date_key"])
+        )
 
     elif table == "fact_lead_events":
-        df = df.dropna(subset=["customer_key", "date_key"])
+        df = (
+            df.dropna(subset=["customer_key", "date_key"])
+        )
 
     elif table == "fact_orders":
         df = (
@@ -58,12 +63,23 @@ for table in TABLES:
               .filter(col("revenue") > 0)
         )
 
-    # Write to Silver Iceberg
-    (
-        df.writeTo(f"local.silver.{table}")
-        .using("iceberg")
-        .createOrReplace()
-    )
+    rows = df.count()
+    print(f"Rows after cleaning: {rows}")
+
+    # Register temp view
+    df.createOrReplaceTempView("temp_table")
+
+    # Drop existing table
+    spark.sql(f"DROP TABLE IF EXISTS local.silver.{table}")
+
+    # Create Iceberg table using SQL
+    spark.sql(f"""
+        CREATE TABLE local.silver.{table}
+        USING iceberg
+        AS
+        SELECT *
+        FROM temp_table
+    """)
 
     print(f"✓ Created Iceberg table: local.silver.{table}")
 

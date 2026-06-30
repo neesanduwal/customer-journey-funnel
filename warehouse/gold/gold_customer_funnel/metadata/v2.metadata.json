@@ -1,0 +1,189 @@
+{
+  "format-version" : 2,
+  "table-uuid" : "67a590e4-37cf-4e59-bf44-d7999c6f3e81",
+  "location" : "warehouse/gold/gold_customer_funnel",
+  "last-sequence-number" : 2,
+  "last-updated-ms" : 1782810665892,
+  "last-column-id" : 10,
+  "current-schema-id" : 1,
+  "schemas" : [ {
+    "type" : "struct",
+    "schema-id" : 0,
+    "fields" : [ {
+      "id" : 1,
+      "name" : "customer_key",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 2,
+      "name" : "customer_id",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 3,
+      "name" : "customer_name",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 4,
+      "name" : "segment",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 5,
+      "name" : "region",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 6,
+      "name" : "website_sessions",
+      "required" : false,
+      "type" : "long"
+    }, {
+      "id" : 7,
+      "name" : "total_leads",
+      "required" : false,
+      "type" : "long"
+    }, {
+      "id" : 8,
+      "name" : "total_orders",
+      "required" : false,
+      "type" : "long"
+    }, {
+      "id" : 9,
+      "name" : "total_revenue",
+      "required" : false,
+      "type" : "decimal(22, 2)"
+    } ]
+  }, {
+    "type" : "struct",
+    "schema-id" : 1,
+    "fields" : [ {
+      "id" : 1,
+      "name" : "customer_key",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 2,
+      "name" : "customer_id",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 3,
+      "name" : "customer_name",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 4,
+      "name" : "segment",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 5,
+      "name" : "region",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 10,
+      "name" : "signup_date",
+      "required" : false,
+      "type" : "date"
+    }, {
+      "id" : 6,
+      "name" : "website_sessions",
+      "required" : false,
+      "type" : "long"
+    }, {
+      "id" : 7,
+      "name" : "total_leads",
+      "required" : false,
+      "type" : "long"
+    }, {
+      "id" : 8,
+      "name" : "total_orders",
+      "required" : false,
+      "type" : "long"
+    }, {
+      "id" : 9,
+      "name" : "total_revenue",
+      "required" : false,
+      "type" : "decimal(22, 2)"
+    } ]
+  } ],
+  "default-spec-id" : 0,
+  "partition-specs" : [ {
+    "spec-id" : 0,
+    "fields" : [ ]
+  } ],
+  "last-partition-id" : 999,
+  "default-sort-order-id" : 0,
+  "sort-orders" : [ {
+    "order-id" : 0,
+    "fields" : [ ]
+  } ],
+  "properties" : {
+    "owner" : "nishan.duwal",
+    "write.parquet.compression-codec" : "zstd"
+  },
+  "current-snapshot-id" : 9154416671141741803,
+  "refs" : {
+    "main" : {
+      "snapshot-id" : 9154416671141741803,
+      "type" : "branch"
+    }
+  },
+  "snapshots" : [ {
+    "sequence-number" : 1,
+    "snapshot-id" : 3351703284866039885,
+    "timestamp-ms" : 1782789267638,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1782789258476",
+      "added-data-files" : "1",
+      "added-records" : "50",
+      "added-files-size" : "4062",
+      "changed-partition-count" : "1",
+      "total-records" : "50",
+      "total-files-size" : "4062",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/gold/gold_customer_funnel/metadata/snap-3351703284866039885-1-53d7f602-384a-48d7-bf02-cc77276ca25b.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 2,
+    "snapshot-id" : 9154416671141741803,
+    "timestamp-ms" : 1782810665892,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1782810656414",
+      "added-data-files" : "1",
+      "added-records" : "50",
+      "added-files-size" : "4516",
+      "changed-partition-count" : "1",
+      "total-records" : "50",
+      "total-files-size" : "4516",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/gold/gold_customer_funnel/metadata/snap-9154416671141741803-1-39b942bb-6747-4c9b-b07c-c397a5c8ee3c.avro",
+    "schema-id" : 1
+  } ],
+  "statistics" : [ ],
+  "partition-statistics" : [ ],
+  "snapshot-log" : [ {
+    "timestamp-ms" : 1782789267638,
+    "snapshot-id" : 3351703284866039885
+  }, {
+    "timestamp-ms" : 1782810665892,
+    "snapshot-id" : 9154416671141741803
+  } ],
+  "metadata-log" : [ {
+    "timestamp-ms" : 1782789267638,
+    "metadata-file" : "warehouse/gold/gold_customer_funnel/metadata/v1.metadata.json"
+  } ]
+}

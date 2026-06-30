@@ -5,10 +5,11 @@ Generates realistic, internally-consistent CSV files for all 4 dimension
 tables and 3 fact tables defined in src/sql/01_create_schema.sql.
 
 Design notes:
-- 50 customers, ~2 years of history (2024-07-01 to 2026-06-28)
-- Each customer can generate MULTIPLE web visits over time, with a
-  realistic drop-off funnel: not every visit becomes a lead, not every
-  lead becomes an opportunity, not every opportunity becomes an order.
+- 300 customers, ~2 years of history (2024-07-01 to 2026-06-28)
+- Each customer can generate MULTIPLE web visits over time (across
+  different days), with a realistic drop-off funnel: not every visit
+  becomes a lead, not every lead becomes an opportunity, not every
+  opportunity becomes an order.
 - Deliberate patterns are baked in on purpose, so WoW/YoY metrics and
   the funnel dashboard have real signal to show:
     * Seasonal bump in Nov/Dec (holiday shopping)
@@ -18,7 +19,7 @@ Design notes:
     * A deliberate dip in one specific month of Year 2, for the
       "anomaly flag" stretch goal
 
-Output: CSV files written to backend/data/raw/
+Output: CSV files written to data/raw/
 
 Run:
     python -m src.ingestion.generate_synthetic_data
@@ -38,14 +39,24 @@ random.seed(42)
 NUM_CUSTOMERS = 50
 START_DATE = date(2024, 7, 1)
 END_DATE = date(2026, 6, 28)
-OUTPUT_DIR = Path(__file__).resolve().parents[2] /"data" / "raw"
+
+# Worst-case downstream offset from a web visit to a completed order:
+# lead (+48h) + qualified (+72h) + opportunity (+96h) + order (+120h)
+# = 336h = 14 days. A visit on END_DATE can still generate fact rows
+# up to 14 days later, so dim_date must extend past END_DATE or those
+# rows will violate the date_key foreign key on load. 20 days gives a
+# safety margin beyond the exact worst case.
+DATE_DIM_BUFFER_DAYS = 20
+DIM_DATE_END = END_DATE + timedelta(days=DATE_DIM_BUFFER_DAYS)
+
+OUTPUT_DIR = Path(__file__).resolve().parents[2] / "data" / "raw"
 
 CHANNELS = [
-    {"name": "Paid Search", "category": "Paid",    "visit_weight": 25, "lead_conv": 0.35, "opp_conv": 0.45, "order_conv": 0.55},
-    {"name": "Email",       "category": "Direct",  "visit_weight": 15, "lead_conv": 0.40, "opp_conv": 0.50, "order_conv": 0.60},
-    {"name": "Organic",     "category": "Organic", "visit_weight": 30, "lead_conv": 0.20, "opp_conv": 0.35, "order_conv": 0.45},
-    {"name": "Referral",    "category": "Organic", "visit_weight": 15, "lead_conv": 0.22, "opp_conv": 0.30, "order_conv": 0.40},
-    {"name": "Social",      "category": "Paid",    "visit_weight": 15, "lead_conv": 0.15, "opp_conv": 0.25, "order_conv": 0.35},
+    {"name": "Paid Search", "category": "Paid",    "visit_weight": 25, "lead_conv": 0.50, "opp_conv": 0.60, "order_conv": 0.70},
+    {"name": "Email",       "category": "Direct",  "visit_weight": 15, "lead_conv": 0.55, "opp_conv": 0.65, "order_conv": 0.75},
+    {"name": "Organic",     "category": "Organic", "visit_weight": 30, "lead_conv": 0.35, "opp_conv": 0.50, "order_conv": 0.60},
+    {"name": "Referral",    "category": "Organic", "visit_weight": 15, "lead_conv": 0.37, "opp_conv": 0.45, "order_conv": 0.55},
+    {"name": "Social",      "category": "Paid",    "visit_weight": 15, "lead_conv": 0.30, "opp_conv": 0.40, "order_conv": 0.50},
 ]
 
 PRODUCT_CATALOG = [
@@ -127,7 +138,7 @@ def main():
         writer.writerows(products)
 
     date_rows = []
-    for d in daterange(START_DATE, END_DATE):
+    for d in daterange(START_DATE, DIM_DATE_END):
         date_rows.append({
             "date_key": int(d.strftime("%Y%m%d")),
             "full_date": d.isoformat(),
@@ -154,12 +165,17 @@ def main():
         signup = date.fromisoformat(cust["signup_date"])
         active_days = [d for d in daterange(signup, END_DATE)]
 
+        # Per-customer engagement factor: some customers are much more
+        # active than others (realistic spread of casual vs. power users).
         engagement = random.uniform(0.3, 2.5)
-        base_visits_per_month = 1.5 * engagement
+        base_visits_per_month = 8 * engagement
 
         for d in active_days:
             multiplier = seasonal_activity_multiplier(d)
-            daily_visit_prob = (base_visits_per_month / 30) * multiplier
+            # Probability this customer visits on this specific day.
+            # Capped at 0.95 so it always stays a valid probability even
+            # for highly-engaged customers during the Nov/Dec seasonal bump.
+            daily_visit_prob = min(0.95, (base_visits_per_month / 30) * multiplier)
             if random.random() > daily_visit_prob:
                 continue
 

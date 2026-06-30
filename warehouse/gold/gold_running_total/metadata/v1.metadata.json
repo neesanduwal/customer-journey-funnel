@@ -1,0 +1,79 @@
+{
+  "format-version" : 2,
+  "table-uuid" : "b3519f47-4a9f-46dd-9638-8cfa34fae78b",
+  "location" : "warehouse/gold/gold_running_total",
+  "last-sequence-number" : 1,
+  "last-updated-ms" : 1782810911106,
+  "last-column-id" : 3,
+  "current-schema-id" : 0,
+  "schemas" : [ {
+    "type" : "struct",
+    "schema-id" : 0,
+    "fields" : [ {
+      "id" : 1,
+      "name" : "full_date",
+      "required" : false,
+      "type" : "date"
+    }, {
+      "id" : 2,
+      "name" : "revenue",
+      "required" : false,
+      "type" : "decimal(22, 2)"
+    }, {
+      "id" : 3,
+      "name" : "running_revenue",
+      "required" : false,
+      "type" : "decimal(32, 2)"
+    } ]
+  } ],
+  "default-spec-id" : 0,
+  "partition-specs" : [ {
+    "spec-id" : 0,
+    "fields" : [ ]
+  } ],
+  "last-partition-id" : 999,
+  "default-sort-order-id" : 0,
+  "sort-orders" : [ {
+    "order-id" : 0,
+    "fields" : [ ]
+  } ],
+  "properties" : {
+    "owner" : "nishan.duwal",
+    "write.parquet.compression-codec" : "zstd"
+  },
+  "current-snapshot-id" : 8894113206451933282,
+  "refs" : {
+    "main" : {
+      "snapshot-id" : 8894113206451933282,
+      "type" : "branch"
+    }
+  },
+  "snapshots" : [ {
+    "sequence-number" : 1,
+    "snapshot-id" : 8894113206451933282,
+    "timestamp-ms" : 1782810911106,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1782810903692",
+      "added-data-files" : "1",
+      "added-records" : "748",
+      "added-files-size" : "5650",
+      "changed-partition-count" : "1",
+      "total-records" : "748",
+      "total-files-size" : "5650",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/gold/gold_running_total/metadata/snap-8894113206451933282-1-1c2584f3-6fd7-48a7-98fc-214cb3a5d244.avro",
+    "schema-id" : 0
+  } ],
+  "statistics" : [ ],
+  "partition-statistics" : [ ],
+  "snapshot-log" : [ {
+    "timestamp-ms" : 1782810911106,
+    "snapshot-id" : 8894113206451933282
+  } ],
+  "metadata-log" : [ ]
+}
