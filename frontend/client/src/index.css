@@ -5,6 +5,10 @@
 }
 
 body{
-    font-family:Segoe UI, sans-serif;
-    background:#f4f7fb;
+    font-family:Segoe UI,sans-serif;
+    background:#f5f7fb;
+}
+
+button{
+    cursor:pointer;
 }

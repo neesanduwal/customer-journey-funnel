@@ -1,7 +1,7 @@
+import ChatPage from "./pages/ChatPage";
+
 function App() {
-  return (
-    <h1>Customer Journey Analytics Dashboard</h1>
-  )
+  return <ChatPage />;
 }
 
-export default App
+export default App;
