@@ -1,0 +1,79 @@
+{
+  "format-version" : 2,
+  "table-uuid" : "288a6524-3b4b-42ab-ae78-3d366ce330d6",
+  "location" : "warehouse/silver/dim_channel",
+  "last-sequence-number" : 1,
+  "last-updated-ms" : 1783051828104,
+  "last-column-id" : 3,
+  "current-schema-id" : 0,
+  "schemas" : [ {
+    "type" : "struct",
+    "schema-id" : 0,
+    "fields" : [ {
+      "id" : 1,
+      "name" : "channel_key",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 2,
+      "name" : "channel_name",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 3,
+      "name" : "channel_category",
+      "required" : false,
+      "type" : "string"
+    } ]
+  } ],
+  "default-spec-id" : 0,
+  "partition-specs" : [ {
+    "spec-id" : 0,
+    "fields" : [ ]
+  } ],
+  "last-partition-id" : 999,
+  "default-sort-order-id" : 0,
+  "sort-orders" : [ {
+    "order-id" : 0,
+    "fields" : [ ]
+  } ],
+  "properties" : {
+    "owner" : "nishan.duwal",
+    "write.parquet.compression-codec" : "zstd"
+  },
+  "current-snapshot-id" : 2842318829274056284,
+  "refs" : {
+    "main" : {
+      "snapshot-id" : 2842318829274056284,
+      "type" : "branch"
+    }
+  },
+  "snapshots" : [ {
+    "sequence-number" : 1,
+    "snapshot-id" : 2842318829274056284,
+    "timestamp-ms" : 1783051828104,
+    "summary" : {
+      "operation" : "append",
+      "spark.app.id" : "local-1783051819579",
+      "added-data-files" : "1",
+      "added-records" : "8",
+      "added-files-size" : "1122",
+      "changed-partition-count" : "1",
+      "total-records" : "8",
+      "total-files-size" : "1122",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/silver/dim_channel/metadata/snap-2842318829274056284-1-13bbbed0-8113-49b4-af95-7e2c89c68ee8.avro",
+    "schema-id" : 0
+  } ],
+  "statistics" : [ ],
+  "partition-statistics" : [ ],
+  "snapshot-log" : [ {
+    "timestamp-ms" : 1783051828104,
+    "snapshot-id" : 2842318829274056284
+  } ],
+  "metadata-log" : [ ]
+}

@@ -1,0 +1,99 @@
+{
+  "format-version" : 2,
+  "table-uuid" : "860f546f-79db-45ce-98cc-91c043603af6",
+  "location" : "warehouse/silver/fact_web_events",
+  "last-sequence-number" : 1,
+  "last-updated-ms" : 1783051830491,
+  "last-column-id" : 7,
+  "current-schema-id" : 0,
+  "schemas" : [ {
+    "type" : "struct",
+    "schema-id" : 0,
+    "fields" : [ {
+      "id" : 1,
+      "name" : "web_event_key",
+      "required" : false,
+      "type" : "long"
+    }, {
+      "id" : 2,
+      "name" : "date_key",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 3,
+      "name" : "customer_key",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 4,
+      "name" : "channel_key",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 5,
+      "name" : "event_timestamp",
+      "required" : false,
+      "type" : "timestamptz"
+    }, {
+      "id" : 6,
+      "name" : "session_id",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 7,
+      "name" : "page_url",
+      "required" : false,
+      "type" : "string"
+    } ]
+  } ],
+  "default-spec-id" : 0,
+  "partition-specs" : [ {
+    "spec-id" : 0,
+    "fields" : [ ]
+  } ],
+  "last-partition-id" : 999,
+  "default-sort-order-id" : 0,
+  "sort-orders" : [ {
+    "order-id" : 0,
+    "fields" : [ ]
+  } ],
+  "properties" : {
+    "owner" : "nishan.duwal",
+    "write.parquet.compression-codec" : "zstd"
+  },
+  "current-snapshot-id" : 7846011991555740852,
+  "refs" : {
+    "main" : {
+      "snapshot-id" : 7846011991555740852,
+      "type" : "branch"
+    }
+  },
+  "snapshots" : [ {
+    "sequence-number" : 1,
+    "snapshot-id" : 7846011991555740852,
+    "timestamp-ms" : 1783051830491,
+    "summary" : {
+      "operation" : "append",
+      "spark.app.id" : "local-1783051819579",
+      "added-data-files" : "1",
+      "added-records" : "65789",
+      "added-files-size" : "1943905",
+      "changed-partition-count" : "1",
+      "total-records" : "65789",
+      "total-files-size" : "1943905",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/silver/fact_web_events/metadata/snap-7846011991555740852-1-5d1768b2-203c-44cd-ae92-6672d4cc81a1.avro",
+    "schema-id" : 0
+  } ],
+  "statistics" : [ ],
+  "partition-statistics" : [ ],
+  "snapshot-log" : [ {
+    "timestamp-ms" : 1783051830491,
+    "snapshot-id" : 7846011991555740852
+  } ],
+  "metadata-log" : [ ]
+}

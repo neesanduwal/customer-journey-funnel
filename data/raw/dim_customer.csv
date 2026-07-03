@@ -1,51 +1,151 @@
 customer_id,customer_name,segment,region,signup_date
-CUST0001,Patrick Sanchez,Consumer,North America,2025-11-09
-CUST0002,Megan Mcclain,Consumer,EMEA,2024-10-17
-CUST0003,Amanda Davis,SMB,North America,2024-09-06
-CUST0004,Alyssa Gonzalez,Consumer,North America,2024-12-28
-CUST0005,Jennifer Cole,Enterprise,North America,2025-11-17
-CUST0006,Abigail Shaffer,SMB,EMEA,2025-02-02
-CUST0007,Donald Lewis,SMB,North America,2025-12-25
-CUST0008,Brandon Davis,Enterprise,LATAM,2026-02-14
-CUST0009,Dennis Williams,SMB,APAC,2026-04-20
-CUST0010,Valerie Gray,Consumer,North America,2025-06-22
-CUST0011,Mark Mcclure,Consumer,EMEA,2025-09-02
-CUST0012,Michele Williams,Consumer,APAC,2025-04-07
-CUST0013,Victoria Wyatt,SMB,EMEA,2024-12-25
-CUST0014,Donald Reid,Consumer,APAC,2026-05-05
-CUST0015,Henry Santiago,SMB,LATAM,2025-04-10
-CUST0016,Maria Lynch,SMB,APAC,2025-12-28
-CUST0017,Danielle Ford,Consumer,North America,2024-11-10
-CUST0018,Margaret Hawkins DDS,Consumer,North America,2025-01-26
-CUST0019,Amy Underwood,Consumer,LATAM,2026-04-16
-CUST0020,Derek Clark,SMB,APAC,2026-03-18
-CUST0021,Emily Rios,Consumer,APAC,2025-09-14
-CUST0022,Maria Thomas,Enterprise,North America,2025-05-04
-CUST0023,Justin Baker,SMB,EMEA,2024-10-17
-CUST0024,Kevin Cox,Consumer,North America,2025-09-28
-CUST0025,Ann Williams,Consumer,North America,2024-10-16
-CUST0026,Christopher Becker,Enterprise,LATAM,2024-09-24
-CUST0027,James Ferrell,Consumer,APAC,2025-10-07
-CUST0028,Juan Dunlap,SMB,APAC,2025-08-15
-CUST0029,Melanie Herrera,SMB,APAC,2025-12-11
-CUST0030,Gina Carter,Consumer,North America,2025-01-24
-CUST0031,Troy Liu,Consumer,EMEA,2024-10-31
-CUST0032,Pamela Romero,Enterprise,EMEA,2025-01-21
-CUST0033,Elizabeth Fowler,SMB,LATAM,2024-09-21
-CUST0034,James Martin,SMB,EMEA,2025-10-17
-CUST0035,Tamara George,Consumer,North America,2026-02-25
-CUST0036,Timothy Koch,SMB,North America,2025-07-15
-CUST0037,Cynthia Allen,Consumer,LATAM,2026-04-07
-CUST0038,Angelica Tucker,SMB,EMEA,2025-09-14
-CUST0039,Kim Martinez,Consumer,APAC,2024-08-23
-CUST0040,Joshua Baker,SMB,LATAM,2025-11-25
-CUST0041,Tracey Hickman,Enterprise,LATAM,2026-05-09
-CUST0042,Christina Collins,SMB,EMEA,2026-02-07
-CUST0043,Jessica Holmes,SMB,APAC,2025-12-04
-CUST0044,Austin Smith,Consumer,LATAM,2024-10-02
-CUST0045,Daniel Jones,Consumer,LATAM,2025-09-04
-CUST0046,Austin Johnson,Enterprise,EMEA,2025-11-03
-CUST0047,David Caldwell,Enterprise,North America,2025-03-14
-CUST0048,Miranda Khan,Consumer,North America,2024-12-14
-CUST0049,Richard Aguirre,SMB,EMEA,2025-09-21
-CUST0050,Matthew Gomez,Consumer,LATAM,2024-11-25
+CUST0001,Patrick Sanchez,Consumer,North America,2023-06-10
+CUST0002,Megan Mcclain,Consumer,EMEA,2019-03-10
+CUST0003,Amanda Davis,SMB,North America,2018-09-28
+CUST0004,Alyssa Gonzalez,Consumer,North America,2019-12-24
+CUST0005,Jennifer Cole,Enterprise,North America,2023-07-13
+CUST0006,Abigail Shaffer,SMB,EMEA,2020-05-14
+CUST0007,Donald Lewis,SMB,North America,2023-12-10
+CUST0008,Brandon Davis,Enterprise,LATAM,2024-06-30
+CUST0009,Dennis Williams,SMB,APAC,2025-03-18
+CUST0010,Valerie Gray,Consumer,North America,2021-11-28
+CUST0011,Mark Mcclure,Consumer,EMEA,2022-09-12
+CUST0012,Michele Williams,Consumer,APAC,2021-01-28
+CUST0013,Victoria Wyatt,SMB,EMEA,2019-12-10
+CUST0014,Donald Reid,Consumer,APAC,2025-05-16
+CUST0015,Henry Santiago,SMB,LATAM,2021-02-07
+CUST0016,Maria Lynch,SMB,APAC,2023-12-21
+CUST0017,Danielle Ford,Consumer,North America,2019-06-16
+CUST0018,Margaret Hawkins DDS,Consumer,North America,2020-04-18
+CUST0019,Amy Underwood,Consumer,LATAM,2025-03-03
+CUST0020,Derek Clark,SMB,APAC,2024-11-06
+CUST0021,Emily Rios,Consumer,APAC,2022-10-29
+CUST0022,Maria Thomas,Enterprise,North America,2021-05-14
+CUST0023,Justin Baker,SMB,EMEA,2019-03-10
+CUST0024,Kevin Cox,Consumer,North America,2022-12-22
+CUST0025,Ann Williams,Consumer,North America,2019-03-06
+CUST0026,Christopher Becker,Enterprise,LATAM,2018-12-07
+CUST0027,James Ferrell,Consumer,APAC,2023-01-27
+CUST0028,Juan Dunlap,SMB,APAC,2022-07-02
+CUST0029,Melanie Herrera,SMB,APAC,2023-10-15
+CUST0030,Gina Carter,Consumer,North America,2020-04-08
+CUST0031,Troy Liu,Consumer,EMEA,2019-05-07
+CUST0032,Pamela Romero,Enterprise,EMEA,2020-03-29
+CUST0033,Elizabeth Fowler,SMB,LATAM,2018-11-27
+CUST0034,James Martin,SMB,EMEA,2023-03-08
+CUST0035,Tamara George,Consumer,North America,2024-08-16
+CUST0036,Timothy Koch,SMB,North America,2022-02-27
+CUST0037,Cynthia Allen,Consumer,LATAM,2025-01-27
+CUST0038,Angelica Tucker,SMB,EMEA,2022-10-29
+CUST0039,Kim Martinez,Consumer,APAC,2018-08-04
+CUST0040,Joshua Baker,SMB,LATAM,2023-08-12
+CUST0041,Tracey Hickman,Enterprise,LATAM,2025-06-03
+CUST0042,Christina Collins,SMB,EMEA,2024-06-04
+CUST0043,Jessica Holmes,SMB,APAC,2023-09-18
+CUST0044,Austin Smith,Consumer,LATAM,2019-01-11
+CUST0045,Daniel Jones,Consumer,LATAM,2022-09-17
+CUST0046,Austin Johnson,Enterprise,EMEA,2023-05-15
+CUST0047,David Caldwell,Enterprise,North America,2020-10-23
+CUST0048,Miranda Khan,Consumer,North America,2019-10-28
+CUST0049,Richard Aguirre,SMB,EMEA,2022-11-26
+CUST0050,Matthew Gomez,Consumer,LATAM,2019-08-15
+CUST0051,Nicholas Nunez,Enterprise,LATAM,2021-07-01
+CUST0052,James Morgan,Enterprise,LATAM,2023-07-01
+CUST0053,Corey Herrera,Enterprise,North America,2025-05-01
+CUST0054,Donald Wright,Consumer,North America,2019-03-12
+CUST0055,Scott Pierce,Consumer,APAC,2018-08-23
+CUST0056,Kimberly Smith,Consumer,APAC,2018-06-07
+CUST0057,Sarah Martin,SMB,LATAM,2018-10-17
+CUST0058,Dr. Steven Martin,SMB,North America,2022-02-17
+CUST0059,Mrs. Rachel Gibson,Consumer,APAC,2018-01-07
+CUST0060,Monica Logan,Consumer,EMEA,2021-08-07
+CUST0061,Brittney Phillips,Enterprise,North America,2023-08-19
+CUST0062,Kimberly Adkins,Consumer,APAC,2018-07-01
+CUST0063,John Calhoun,Consumer,EMEA,2018-06-27
+CUST0064,Tyler Miller,SMB,EMEA,2022-07-09
+CUST0065,Barry Hensley,Enterprise,North America,2019-08-01
+CUST0066,Steve Sanchez,Enterprise,LATAM,2021-06-08
+CUST0067,Bradley Sandoval,SMB,APAC,2023-01-22
+CUST0068,Taylor Harris,Consumer,APAC,2022-10-23
+CUST0069,Derek Anderson,SMB,EMEA,2024-02-04
+CUST0070,Eugene Walton,Consumer,North America,2023-06-29
+CUST0071,Marc Hart,SMB,LATAM,2018-08-14
+CUST0072,Daniel Baker,Consumer,EMEA,2018-11-07
+CUST0073,Sherry Wood,SMB,LATAM,2020-12-20
+CUST0074,Joshua Turner,Consumer,EMEA,2019-05-06
+CUST0075,Aimee Montoya,SMB,LATAM,2024-11-12
+CUST0076,Ashley Humphrey,Consumer,EMEA,2020-07-19
+CUST0077,Brian Tran,Consumer,LATAM,2020-04-01
+CUST0078,Daniel Cooper,Consumer,APAC,2020-04-26
+CUST0079,Deborah Freeman,Enterprise,LATAM,2023-11-06
+CUST0080,Amber Walters,SMB,EMEA,2025-09-13
+CUST0081,Aaron Wise,SMB,North America,2025-01-20
+CUST0082,Candice Ramos,Enterprise,EMEA,2023-06-03
+CUST0083,Adam Jones,Enterprise,North America,2024-01-02
+CUST0084,Brittany Johnson,SMB,North America,2025-07-06
+CUST0085,Brittany Anderson,SMB,North America,2021-02-21
+CUST0086,Timothy Stanton,Consumer,North America,2020-08-15
+CUST0087,Christine Wright,Enterprise,APAC,2018-05-04
+CUST0088,Justin Baxter,Consumer,EMEA,2018-11-16
+CUST0089,Tammy Young,Enterprise,LATAM,2023-04-13
+CUST0090,Rita Keith,SMB,LATAM,2019-05-20
+CUST0091,Tim Patton,Consumer,EMEA,2018-03-19
+CUST0092,Sharon Cochran,SMB,LATAM,2021-07-03
+CUST0093,Michael Reyes,Enterprise,LATAM,2020-04-08
+CUST0094,Courtney Velasquez,Enterprise,North America,2018-05-01
+CUST0095,Robert Savage,Consumer,North America,2021-12-01
+CUST0096,Corey Murphy,SMB,APAC,2019-11-24
+CUST0097,Raymond Bell,Consumer,North America,2025-05-09
+CUST0098,William Herrera,SMB,EMEA,2022-05-02
+CUST0099,Wesley White,Enterprise,EMEA,2018-03-27
+CUST0100,Kyle Reed,Enterprise,APAC,2020-04-04
+CUST0101,Larry Dixon,Enterprise,North America,2024-09-09
+CUST0102,Cheryl Williams,Enterprise,North America,2021-04-11
+CUST0103,Timothy Ryan,SMB,North America,2021-09-16
+CUST0104,Nancy Gonzalez,Consumer,EMEA,2024-02-14
+CUST0105,Matthew Rivera,SMB,LATAM,2021-09-01
+CUST0106,Belinda Mccullough,Enterprise,LATAM,2020-09-02
+CUST0107,Jason Powell,Consumer,EMEA,2022-04-25
+CUST0108,Cheryl Ortega,Enterprise,LATAM,2020-07-07
+CUST0109,Stephanie Gilbert,SMB,LATAM,2021-03-23
+CUST0110,Roy Torres,SMB,LATAM,2020-07-24
+CUST0111,Kevin Pena,SMB,APAC,2019-10-16
+CUST0112,Michael Dixon,SMB,North America,2021-12-15
+CUST0113,Rebecca Jackson,Enterprise,North America,2024-10-02
+CUST0114,Matthew Harvey,Consumer,North America,2018-09-21
+CUST0115,Nicole Chambers,SMB,LATAM,2018-10-18
+CUST0116,Brittany Williams,Enterprise,EMEA,2019-11-29
+CUST0117,Patricia Gibson,SMB,North America,2022-01-16
+CUST0118,Cheyenne Horton,Consumer,North America,2025-07-16
+CUST0119,Charles Watts,Enterprise,EMEA,2022-03-16
+CUST0120,Patricia Rodriguez,Enterprise,EMEA,2025-08-05
+CUST0121,Robert Dominguez,Enterprise,North America,2021-08-13
+CUST0122,David Charles,Consumer,LATAM,2021-12-14
+CUST0123,John Schmidt,Consumer,APAC,2021-11-19
+CUST0124,Tiffany Vance,Consumer,EMEA,2022-10-03
+CUST0125,Stephanie Simmons,Consumer,APAC,2023-03-19
+CUST0126,Stephanie Manning,SMB,LATAM,2025-09-18
+CUST0127,Paul Larsen,SMB,APAC,2022-01-14
+CUST0128,Kelly Sims,Enterprise,North America,2020-05-11
+CUST0129,Micheal Young,SMB,North America,2020-05-03
+CUST0130,Joshua Taylor,SMB,EMEA,2020-11-09
+CUST0131,Christian Lewis,Enterprise,EMEA,2019-12-20
+CUST0132,Joshua Perry,Consumer,North America,2021-07-12
+CUST0133,Jean Carrillo,Consumer,APAC,2019-10-05
+CUST0134,Spencer Johnston,SMB,LATAM,2023-12-01
+CUST0135,Guy Molina,Consumer,APAC,2022-01-21
+CUST0136,Sara Medina,Consumer,North America,2025-04-05
+CUST0137,Lindsey Walker,Consumer,APAC,2024-04-01
+CUST0138,John Price,Consumer,North America,2019-11-13
+CUST0139,Jennifer Martin,Consumer,EMEA,2023-09-10
+CUST0140,Veronica Ferguson,SMB,North America,2021-12-23
+CUST0141,Justin Johnson,Consumer,EMEA,2025-09-18
+CUST0142,Sean White,SMB,EMEA,2023-06-20
+CUST0143,Daniel Murphy,Consumer,EMEA,2020-03-19
+CUST0144,Diana Bean,Consumer,APAC,2024-06-23
+CUST0145,Bradley Smith,Enterprise,APAC,2021-08-02
+CUST0146,Trevor Walker,Consumer,North America,2022-08-03
+CUST0147,Marissa Webster,SMB,LATAM,2018-08-02
+CUST0148,Alex Hernandez,Consumer,North America,2020-02-08
+CUST0149,Brian Gould,SMB,EMEA,2019-01-28
+CUST0150,Pamela Jackson,Consumer,APAC,2021-12-15

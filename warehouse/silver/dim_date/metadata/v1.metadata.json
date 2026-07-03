@@ -1,0 +1,114 @@
+{
+  "format-version" : 2,
+  "table-uuid" : "1eb0d37c-8ec2-4966-b3e7-cfb5b0d60788",
+  "location" : "warehouse/silver/dim_date",
+  "last-sequence-number" : 1,
+  "last-updated-ms" : 1783051829478,
+  "last-column-id" : 10,
+  "current-schema-id" : 0,
+  "schemas" : [ {
+    "type" : "struct",
+    "schema-id" : 0,
+    "fields" : [ {
+      "id" : 1,
+      "name" : "date_key",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 2,
+      "name" : "full_date",
+      "required" : false,
+      "type" : "date"
+    }, {
+      "id" : 3,
+      "name" : "day_of_week",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 4,
+      "name" : "day_name",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 5,
+      "name" : "week_of_year",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 6,
+      "name" : "month",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 7,
+      "name" : "month_name",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 8,
+      "name" : "quarter",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 9,
+      "name" : "year",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 10,
+      "name" : "is_weekend",
+      "required" : false,
+      "type" : "boolean"
+    } ]
+  } ],
+  "default-spec-id" : 0,
+  "partition-specs" : [ {
+    "spec-id" : 0,
+    "fields" : [ ]
+  } ],
+  "last-partition-id" : 999,
+  "default-sort-order-id" : 0,
+  "sort-orders" : [ {
+    "order-id" : 0,
+    "fields" : [ ]
+  } ],
+  "properties" : {
+    "owner" : "nishan.duwal",
+    "write.parquet.compression-codec" : "zstd"
+  },
+  "current-snapshot-id" : 5224327649261686095,
+  "refs" : {
+    "main" : {
+      "snapshot-id" : 5224327649261686095,
+      "type" : "branch"
+    }
+  },
+  "snapshots" : [ {
+    "sequence-number" : 1,
+    "snapshot-id" : 5224327649261686095,
+    "timestamp-ms" : 1783051829478,
+    "summary" : {
+      "operation" : "append",
+      "spark.app.id" : "local-1783051819579",
+      "added-data-files" : "1",
+      "added-records" : "3121",
+      "added-files-size" : "19580",
+      "changed-partition-count" : "1",
+      "total-records" : "3121",
+      "total-files-size" : "19580",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/silver/dim_date/metadata/snap-5224327649261686095-1-a092dc6d-dfc3-4ddf-af63-0889817225bf.avro",
+    "schema-id" : 0
+  } ],
+  "statistics" : [ ],
+  "partition-statistics" : [ ],
+  "snapshot-log" : [ {
+    "timestamp-ms" : 1783051829478,
+    "snapshot-id" : 5224327649261686095
+  } ],
+  "metadata-log" : [ ]
+}

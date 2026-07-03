@@ -1,0 +1,89 @@
+{
+  "format-version" : 2,
+  "table-uuid" : "e85dcd75-99af-4069-9abc-c1d598f96d3a",
+  "location" : "warehouse/silver/dim_product",
+  "last-sequence-number" : 1,
+  "last-updated-ms" : 1783051828914,
+  "last-column-id" : 5,
+  "current-schema-id" : 0,
+  "schemas" : [ {
+    "type" : "struct",
+    "schema-id" : 0,
+    "fields" : [ {
+      "id" : 1,
+      "name" : "product_key",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 2,
+      "name" : "product_id",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 3,
+      "name" : "product_name",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 4,
+      "name" : "category",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 5,
+      "name" : "unit_price",
+      "required" : false,
+      "type" : "decimal(10, 2)"
+    } ]
+  } ],
+  "default-spec-id" : 0,
+  "partition-specs" : [ {
+    "spec-id" : 0,
+    "fields" : [ ]
+  } ],
+  "last-partition-id" : 999,
+  "default-sort-order-id" : 0,
+  "sort-orders" : [ {
+    "order-id" : 0,
+    "fields" : [ ]
+  } ],
+  "properties" : {
+    "owner" : "nishan.duwal",
+    "write.parquet.compression-codec" : "zstd"
+  },
+  "current-snapshot-id" : 4533340060468646927,
+  "refs" : {
+    "main" : {
+      "snapshot-id" : 4533340060468646927,
+      "type" : "branch"
+    }
+  },
+  "snapshots" : [ {
+    "sequence-number" : 1,
+    "snapshot-id" : 4533340060468646927,
+    "timestamp-ms" : 1783051828914,
+    "summary" : {
+      "operation" : "append",
+      "spark.app.id" : "local-1783051819579",
+      "added-data-files" : "1",
+      "added-records" : "50",
+      "added-files-size" : "2709",
+      "changed-partition-count" : "1",
+      "total-records" : "50",
+      "total-files-size" : "2709",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/silver/dim_product/metadata/snap-4533340060468646927-1-918bbc61-998f-43c9-9f58-ba696c8d5c0f.avro",
+    "schema-id" : 0
+  } ],
+  "statistics" : [ ],
+  "partition-statistics" : [ ],
+  "snapshot-log" : [ {
+    "timestamp-ms" : 1783051828914,
+    "snapshot-id" : 4533340060468646927
+  } ],
+  "metadata-log" : [ ]
+}

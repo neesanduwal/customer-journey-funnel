@@ -2,10 +2,50 @@ product_id,product_name,category,unit_price
 PROD001,Wireless Mouse,Accessories,24.99
 PROD002,Mechanical Keyboard,Accessories,89.99
 PROD003,USB-C Hub,Accessories,39.99
-PROD004,27in Monitor,Displays,249.99
-PROD005,Laptop Stand,Accessories,34.99
-PROD006,Noise Cancelling Headphones,Audio,179.99
-PROD007,Webcam HD,Accessories,59.99
-PROD008,Desk Lamp LED,Office,29.99
-PROD009,Ergonomic Chair,Office,329.99
-PROD010,Standing Desk,Office,449.99
+PROD004,Laptop Stand,Accessories,34.99
+PROD005,Webcam HD,Accessories,59.99
+PROD006,Wrist Rest,Accessories,19.99
+PROD007,Cable Management Kit,Accessories,14.99
+PROD008,USB-A Hub 4-Port,Accessories,22.99
+PROD009,Laptop Sleeve 15in,Accessories,29.99
+PROD010,Wireless Numpad,Accessories,32.99
+PROD011,Screen Cleaner Kit,Accessories,9.99
+PROD012,Magnetic Cable Clips,Accessories,12.99
+PROD013,Monitor Arm Single,Accessories,49.99
+PROD014,Keyboard Tray,Accessories,44.99
+PROD015,Docking Station,Accessories,129.99
+PROD016,27in Monitor,Displays,249.99
+PROD017,32in 4K Monitor,Displays,449.99
+PROD018,24in IPS Monitor,Displays,189.99
+PROD019,Portable Monitor 15in,Displays,159.99
+PROD020,Ultrawide 34in Monitor,Displays,549.99
+PROD021,Privacy Screen Filter,Displays,39.99
+PROD022,Noise Cancelling Headphones,Audio,179.99
+PROD023,USB Microphone,Audio,89.99
+PROD024,Desk Speaker Pair,Audio,119.99
+PROD025,Headphone Stand,Audio,24.99
+PROD026,Bluetooth Earbuds,Audio,79.99
+PROD027,Audio Mixer 4-Channel,Audio,149.99
+PROD028,Soundbar Compact,Audio,99.99
+PROD029,Desk Lamp LED,Office,29.99
+PROD030,Ergonomic Chair,Office,329.99
+PROD031,Standing Desk,Office,449.99
+PROD032,Whiteboard 36x24,Office,59.99
+PROD033,Cable Trunking 2m,Office,17.99
+PROD034,Under-Desk Drawer,Office,39.99
+PROD035,Monitor Riser,Office,27.99
+PROD036,Footrest Adjustable,Office,34.99
+PROD037,Desk Organiser Set,Office,22.99
+PROD038,Anti-Fatigue Mat,Office,49.99
+PROD039,WiFi 6 Router,Networking,129.99
+PROD040,Network Switch 8-Port,Networking,44.99
+PROD041,Ethernet Cable 5m,Networking,8.99
+PROD042,Powerline Adapter Kit,Networking,59.99
+PROD043,WiFi Range Extender,Networking,39.99
+PROD044,NAS Drive 4TB,Networking,199.99
+PROD045,UPS Battery Backup,Power,89.99
+PROD046,Surge Protector 6-Outlet,Power,24.99
+PROD047,GaN Charger 65W,Power,44.99
+PROD048,Wireless Charging Pad,Power,19.99
+PROD049,Power Strip Tower,Power,34.99
+PROD050,Solar Charging Panel,Power,79.99

@@ -1,0 +1,94 @@
+{
+  "format-version" : 2,
+  "table-uuid" : "60d04866-2336-44d6-8525-d8d06c6634cc",
+  "location" : "warehouse/silver/dim_customer",
+  "last-sequence-number" : 1,
+  "last-updated-ms" : 1783051827462,
+  "last-column-id" : 6,
+  "current-schema-id" : 0,
+  "schemas" : [ {
+    "type" : "struct",
+    "schema-id" : 0,
+    "fields" : [ {
+      "id" : 1,
+      "name" : "customer_key",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 2,
+      "name" : "customer_id",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 3,
+      "name" : "customer_name",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 4,
+      "name" : "segment",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 5,
+      "name" : "region",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 6,
+      "name" : "signup_date",
+      "required" : false,
+      "type" : "date"
+    } ]
+  } ],
+  "default-spec-id" : 0,
+  "partition-specs" : [ {
+    "spec-id" : 0,
+    "fields" : [ ]
+  } ],
+  "last-partition-id" : 999,
+  "default-sort-order-id" : 0,
+  "sort-orders" : [ {
+    "order-id" : 0,
+    "fields" : [ ]
+  } ],
+  "properties" : {
+    "owner" : "nishan.duwal",
+    "write.parquet.compression-codec" : "zstd"
+  },
+  "current-snapshot-id" : 5778812259262622771,
+  "refs" : {
+    "main" : {
+      "snapshot-id" : 5778812259262622771,
+      "type" : "branch"
+    }
+  },
+  "snapshots" : [ {
+    "sequence-number" : 1,
+    "snapshot-id" : 5778812259262622771,
+    "timestamp-ms" : 1783051827462,
+    "summary" : {
+      "operation" : "append",
+      "spark.app.id" : "local-1783051819579",
+      "added-data-files" : "1",
+      "added-records" : "150",
+      "added-files-size" : "4155",
+      "changed-partition-count" : "1",
+      "total-records" : "150",
+      "total-files-size" : "4155",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/silver/dim_customer/metadata/snap-5778812259262622771-1-6e6da2f0-edb4-48fe-9dfd-20456a69e0fe.avro",
+    "schema-id" : 0
+  } ],
+  "statistics" : [ ],
+  "partition-statistics" : [ ],
+  "snapshot-log" : [ {
+    "timestamp-ms" : 1783051827462,
+    "snapshot-id" : 5778812259262622771
+  } ],
+  "metadata-log" : [ ]
+}
