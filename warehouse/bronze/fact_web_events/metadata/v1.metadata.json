@@ -1,10 +1,10 @@
 {
   "format-version" : 2,
-  "table-uuid" : "d8570a5f-b2a6-4772-bb4e-b3cd504ec054",
+  "table-uuid" : "ad07831a-fbc0-4991-98ed-aa187fd24ac4",
   "location" : "warehouse/bronze/fact_web_events",
   "last-sequence-number" : 1,
-  "last-updated-ms" : 1782788903118,
-  "last-column-id" : 7,
+  "last-updated-ms" : 1783308887516,
+  "last-column-id" : 8,
   "current-schema-id" : 0,
   "schemas" : [ {
     "type" : "struct",
@@ -44,14 +44,24 @@
       "name" : "page_url",
       "required" : false,
       "type" : "string"
+    }, {
+      "id" : 8,
+      "name" : "event_date",
+      "required" : false,
+      "type" : "date"
     } ]
   } ],
   "default-spec-id" : 0,
   "partition-specs" : [ {
     "spec-id" : 0,
-    "fields" : [ ]
+    "fields" : [ {
+      "name" : "event_date_day",
+      "transform" : "day",
+      "source-id" : 8,
+      "field-id" : 1000
+    } ]
   } ],
-  "last-partition-id" : 999,
+  "last-partition-id" : 1000,
   "default-sort-order-id" : 0,
   "sort-orders" : [ {
     "order-id" : 0,
@@ -61,39 +71,39 @@
     "owner" : "nishan.duwal",
     "write.parquet.compression-codec" : "zstd"
   },
-  "current-snapshot-id" : 170303685737699178,
+  "current-snapshot-id" : 7319777834719148843,
   "refs" : {
     "main" : {
-      "snapshot-id" : 170303685737699178,
+      "snapshot-id" : 7319777834719148843,
       "type" : "branch"
     }
   },
   "snapshots" : [ {
     "sequence-number" : 1,
-    "snapshot-id" : 170303685737699178,
-    "timestamp-ms" : 1782788903118,
+    "snapshot-id" : 7319777834719148843,
+    "timestamp-ms" : 1783308887516,
     "summary" : {
-      "operation" : "overwrite",
-      "spark.app.id" : "local-1782788892899",
-      "added-data-files" : "1",
-      "added-records" : "1500",
-      "added-files-size" : "48002",
-      "changed-partition-count" : "1",
-      "total-records" : "1500",
-      "total-files-size" : "48002",
-      "total-data-files" : "1",
+      "operation" : "append",
+      "spark.app.id" : "local-1783308870963",
+      "added-data-files" : "233",
+      "added-records" : "610",
+      "added-files-size" : "603184",
+      "changed-partition-count" : "233",
+      "total-records" : "610",
+      "total-files-size" : "603184",
+      "total-data-files" : "233",
       "total-delete-files" : "0",
       "total-position-deletes" : "0",
       "total-equality-deletes" : "0"
     },
-    "manifest-list" : "warehouse/bronze/fact_web_events/metadata/snap-170303685737699178-1-dbf58901-b2af-4658-bc83-4c95f4d0dc59.avro",
+    "manifest-list" : "warehouse/bronze/fact_web_events/metadata/snap-7319777834719148843-1-2a651694-55d1-4e27-85cb-1a5a4198d740.avro",
     "schema-id" : 0
   } ],
   "statistics" : [ ],
   "partition-statistics" : [ ],
   "snapshot-log" : [ {
-    "timestamp-ms" : 1782788903118,
-    "snapshot-id" : 170303685737699178
+    "timestamp-ms" : 1783308887516,
+    "snapshot-id" : 7319777834719148843
   } ],
   "metadata-log" : [ ]
 }

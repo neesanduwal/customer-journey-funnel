@@ -1,0 +1,26 @@
+============================================================
+df.explain() BEFORE partition evolution
+Query: fact_orders WHERE date_key = 20240101
+Partition scheme: days(date_key)
+============================================================
+
+== Parsed Logical Plan ==
+'Filter ('event_date = 2024-01-01)
++- SubqueryAlias local.bronze.fact_orders
+   +- RelationV2[order_line_key#0L, order_id#1, date_key#2, customer_key#3, channel_key#4, product_key#5, quantity#6, unit_price#7, revenue#8, order_status#9, event_date#10] local.bronze.fact_orders local.bronze.fact_orders
+
+== Analyzed Logical Plan ==
+order_line_key: bigint, order_id: string, date_key: int, customer_key: int, channel_key: int, product_key: int, quantity: int, unit_price: decimal(10,2), revenue: decimal(12,2), order_status: string, event_date: date
+Filter (event_date#10 = cast(2024-01-01 as date))
++- SubqueryAlias local.bronze.fact_orders
+   +- RelationV2[order_line_key#0L, order_id#1, date_key#2, customer_key#3, channel_key#4, product_key#5, quantity#6, unit_price#7, revenue#8, order_status#9, event_date#10] local.bronze.fact_orders local.bronze.fact_orders
+
+== Optimized Logical Plan ==
+Filter (event_date#10 = 2024-01-01)
++- RelationV2[order_line_key#0L, order_id#1, date_key#2, customer_key#3, channel_key#4, product_key#5, quantity#6, unit_price#7, revenue#8, order_status#9, event_date#10] local.bronze.fact_orders
+
+== Physical Plan ==
+*(1) Filter (event_date#10 = 2024-01-01)
++- *(1) ColumnarToRow
+   +- BatchScan local.bronze.fact_orders[order_line_key#0L, order_id#1, date_key#2, customer_key#3, channel_key#4, product_key#5, quantity#6, unit_price#7, revenue#8, order_status#9, event_date#10] local.bronze.fact_orders (branch=null) [filters=event_date IS NOT NULL, event_date = 19723, groupedBy=] RuntimeFilters: []
+

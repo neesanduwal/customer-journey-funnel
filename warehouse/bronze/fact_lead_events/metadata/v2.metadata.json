@@ -1,10 +1,10 @@
 {
   "format-version" : 2,
-  "table-uuid" : "f911657e-0c88-42d3-bf5a-f36fe89b0963",
+  "table-uuid" : "9e578988-dd66-411d-8410-8d0444ad8ec9",
   "location" : "warehouse/bronze/fact_lead_events",
   "last-sequence-number" : 2,
-  "last-updated-ms" : 1782794943061,
-  "last-column-id" : 7,
+  "last-updated-ms" : 1783308922862,
+  "last-column-id" : 8,
   "current-schema-id" : 0,
   "schemas" : [ {
     "type" : "struct",
@@ -44,14 +44,24 @@
       "name" : "lead_status",
       "required" : false,
       "type" : "string"
+    }, {
+      "id" : 8,
+      "name" : "event_date",
+      "required" : false,
+      "type" : "date"
     } ]
   } ],
   "default-spec-id" : 0,
   "partition-specs" : [ {
     "spec-id" : 0,
-    "fields" : [ ]
+    "fields" : [ {
+      "name" : "event_date_day",
+      "transform" : "day",
+      "source-id" : 8,
+      "field-id" : 1000
+    } ]
   } ],
-  "last-partition-id" : 999,
+  "last-partition-id" : 1000,
   "default-sort-order-id" : 0,
   "sort-orders" : [ {
     "order-id" : 0,
@@ -61,65 +71,66 @@
     "owner" : "nishan.duwal",
     "write.parquet.compression-codec" : "zstd"
   },
-  "current-snapshot-id" : 6863388137132024021,
+  "current-snapshot-id" : 7438936634202768282,
   "refs" : {
     "main" : {
-      "snapshot-id" : 6863388137132024021,
+      "snapshot-id" : 7438936634202768282,
       "type" : "branch"
     }
   },
   "snapshots" : [ {
     "sequence-number" : 1,
-    "snapshot-id" : 7006191743714850803,
-    "timestamp-ms" : 1782788903737,
+    "snapshot-id" : 2516478274825184324,
+    "timestamp-ms" : 1783308919506,
     "summary" : {
-      "operation" : "overwrite",
-      "spark.app.id" : "local-1782788892899",
-      "added-data-files" : "1",
-      "added-records" : "639",
-      "added-files-size" : "10142",
-      "changed-partition-count" : "1",
-      "total-records" : "639",
-      "total-files-size" : "10142",
-      "total-data-files" : "1",
+      "operation" : "append",
+      "spark.app.id" : "local-1783308870963",
+      "added-data-files" : "162",
+      "added-records" : "312",
+      "added-files-size" : "387256",
+      "changed-partition-count" : "162",
+      "total-records" : "312",
+      "total-files-size" : "387256",
+      "total-data-files" : "162",
       "total-delete-files" : "0",
       "total-position-deletes" : "0",
       "total-equality-deletes" : "0"
     },
-    "manifest-list" : "warehouse/bronze/fact_lead_events/metadata/snap-7006191743714850803-1-14b46762-6c5d-46ef-a166-3212acc2dfd2.avro",
+    "manifest-list" : "warehouse/bronze/fact_lead_events/metadata/snap-2516478274825184324-1-1805dc66-e1f0-4555-864d-485f2b1db35d.avro",
     "schema-id" : 0
   }, {
     "sequence-number" : 2,
-    "snapshot-id" : 6863388137132024021,
-    "timestamp-ms" : 1782794943061,
+    "snapshot-id" : 7438936634202768282,
+    "parent-snapshot-id" : 2516478274825184324,
+    "timestamp-ms" : 1783308922862,
     "summary" : {
-      "operation" : "overwrite",
-      "spark.app.id" : "local-1782794931373",
-      "added-data-files" : "1",
-      "added-records" : "39859",
-      "added-files-size" : "402430",
-      "changed-partition-count" : "1",
-      "total-records" : "39859",
-      "total-files-size" : "402430",
-      "total-data-files" : "1",
+      "operation" : "append",
+      "spark.app.id" : "local-1783308870963",
+      "added-data-files" : "346",
+      "added-records" : "1390",
+      "added-files-size" : "869228",
+      "changed-partition-count" : "346",
+      "total-records" : "1702",
+      "total-files-size" : "1256484",
+      "total-data-files" : "508",
       "total-delete-files" : "0",
       "total-position-deletes" : "0",
       "total-equality-deletes" : "0"
     },
-    "manifest-list" : "warehouse/bronze/fact_lead_events/metadata/snap-6863388137132024021-1-c044e6f2-43bd-4950-a2ec-a3093169b684.avro",
+    "manifest-list" : "warehouse/bronze/fact_lead_events/metadata/snap-7438936634202768282-1-e7bd9c41-ec23-4ee5-a2d1-f4604507d83b.avro",
     "schema-id" : 0
   } ],
   "statistics" : [ ],
   "partition-statistics" : [ ],
   "snapshot-log" : [ {
-    "timestamp-ms" : 1782788903737,
-    "snapshot-id" : 7006191743714850803
+    "timestamp-ms" : 1783308919506,
+    "snapshot-id" : 2516478274825184324
   }, {
-    "timestamp-ms" : 1782794943061,
-    "snapshot-id" : 6863388137132024021
+    "timestamp-ms" : 1783308922862,
+    "snapshot-id" : 7438936634202768282
   } ],
   "metadata-log" : [ {
-    "timestamp-ms" : 1782788903737,
+    "timestamp-ms" : 1783308919506,
     "metadata-file" : "warehouse/bronze/fact_lead_events/metadata/v1.metadata.json"
   } ]
 }

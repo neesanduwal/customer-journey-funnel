@@ -5,33 +5,23 @@ def create_spark_session():
     spark = (
         SparkSession.builder
         .appName("Customer Journey Funnel")
+        .master("local[*]")
 
-        # Run Spark in single-thread mode
-        .master("local[1]")
-
-        # Memory
+        # Memory tuning
         .config("spark.driver.memory", "3g")
         .config("spark.driver.maxResultSize", "1g")
 
-        # Reduce parallelism
-        .config("spark.default.parallelism", "1")
-        .config("spark.sql.shuffle.partitions", "1")
+        # JDK 17 JIT compiler workaround
+        .config("spark.driver.extraJavaOptions", "-XX:-TieredCompilation")
 
-        # Disable adaptive execution
-        .config("spark.sql.adaptive.enabled", "false")
+        # Shuffle partitions
+        .config("spark.sql.shuffle.partitions", "8")
 
-        # Disable whole-stage code generation
-        .config("spark.sql.codegen.wholeStage", "false")
+        # Disable Iceberg fanout writer to prevent OOM on 8GB machines
+        # (fanout opens one Parquet writer per partition simultaneously)
+        .config("spark.sql.iceberg.fanout.enabled", "false")
 
-        # Java options
-        .config(
-            "spark.driver.extraJavaOptions",
-            "-XX:-TieredCompilation "
-            "-XX:+UseSerialGC "
-            "-Xss4m"
-        )
-
-        # JDBC + Iceberg
+        # PostgreSQL + Iceberg jars
         .config(
             "spark.jars.packages",
             ",".join([
@@ -40,23 +30,14 @@ def create_spark_session():
             ])
         )
 
-        # Iceberg
+        # Iceberg Catalog
         .config(
             "spark.sql.extensions",
             "org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions"
         )
-        .config(
-            "spark.sql.catalog.local",
-            "org.apache.iceberg.spark.SparkCatalog"
-        )
-        .config(
-            "spark.sql.catalog.local.type",
-            "hadoop"
-        )
-        .config(
-            "spark.sql.catalog.local.warehouse",
-            "warehouse"
-        )
+        .config("spark.sql.catalog.local", "org.apache.iceberg.spark.SparkCatalog")
+        .config("spark.sql.catalog.local.type", "hadoop")
+        .config("spark.sql.catalog.local.warehouse", "warehouse")
 
         .getOrCreate()
     )

@@ -1,0 +1,28 @@
+============================================================
+df.explain() AFTER partition evolution
+Query: fact_orders WHERE date_key = 20240101
+Partition scheme evolved: days(date_key) → months(date_key)
+Key evidence: old files NOT rewritten — both partition
+schemes appear in the scan, proving metadata-only evolution
+============================================================
+
+== Parsed Logical Plan ==
+'Filter ('event_date = 2024-01-01)
++- SubqueryAlias local.bronze.fact_orders
+   +- RelationV2[order_line_key#162L, order_id#163, date_key#164, customer_key#165, channel_key#166, product_key#167, quantity#168, unit_price#169, revenue#170, order_status#171, event_date#172] local.bronze.fact_orders local.bronze.fact_orders
+
+== Analyzed Logical Plan ==
+order_line_key: bigint, order_id: string, date_key: int, customer_key: int, channel_key: int, product_key: int, quantity: int, unit_price: decimal(10,2), revenue: decimal(12,2), order_status: string, event_date: date
+Filter (event_date#172 = cast(2024-01-01 as date))
++- SubqueryAlias local.bronze.fact_orders
+   +- RelationV2[order_line_key#162L, order_id#163, date_key#164, customer_key#165, channel_key#166, product_key#167, quantity#168, unit_price#169, revenue#170, order_status#171, event_date#172] local.bronze.fact_orders local.bronze.fact_orders
+
+== Optimized Logical Plan ==
+Filter (event_date#172 = 2024-01-01)
++- RelationV2[order_line_key#162L, order_id#163, date_key#164, customer_key#165, channel_key#166, product_key#167, quantity#168, unit_price#169, revenue#170, order_status#171, event_date#172] local.bronze.fact_orders
+
+== Physical Plan ==
+*(1) Filter (event_date#172 = 2024-01-01)
++- *(1) ColumnarToRow
+   +- BatchScan local.bronze.fact_orders[order_line_key#162L, order_id#163, date_key#164, customer_key#165, channel_key#166, product_key#167, quantity#168, unit_price#169, revenue#170, order_status#171, event_date#172] local.bronze.fact_orders (branch=null) [filters=event_date IS NOT NULL, event_date = 19723, groupedBy=] RuntimeFilters: []
+

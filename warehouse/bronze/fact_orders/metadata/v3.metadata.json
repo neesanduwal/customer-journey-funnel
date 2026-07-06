@@ -1,10 +1,10 @@
 {
   "format-version" : 2,
-  "table-uuid" : "1da0a998-e670-4158-a000-7601f4773951",
+  "table-uuid" : "045940fd-7364-4c95-886e-d3ca8bbc4dfb",
   "location" : "warehouse/bronze/fact_orders",
   "last-sequence-number" : 3,
-  "last-updated-ms" : 1782806945747,
-  "last-column-id" : 10,
+  "last-updated-ms" : 1783308949340,
+  "last-column-id" : 11,
   "current-schema-id" : 0,
   "schemas" : [ {
     "type" : "struct",
@@ -59,14 +59,24 @@
       "name" : "order_status",
       "required" : false,
       "type" : "string"
+    }, {
+      "id" : 11,
+      "name" : "event_date",
+      "required" : false,
+      "type" : "date"
     } ]
   } ],
   "default-spec-id" : 0,
   "partition-specs" : [ {
     "spec-id" : 0,
-    "fields" : [ ]
+    "fields" : [ {
+      "name" : "event_date_day",
+      "transform" : "day",
+      "source-id" : 11,
+      "field-id" : 1000
+    } ]
   } ],
-  "last-partition-id" : 999,
+  "last-partition-id" : 1000,
   "default-sort-order-id" : 0,
   "sort-orders" : [ {
     "order-id" : 0,
@@ -76,91 +86,93 @@
     "owner" : "nishan.duwal",
     "write.parquet.compression-codec" : "zstd"
   },
-  "current-snapshot-id" : 2622065732425667390,
+  "current-snapshot-id" : 676103181257482033,
   "refs" : {
     "main" : {
-      "snapshot-id" : 2622065732425667390,
+      "snapshot-id" : 676103181257482033,
       "type" : "branch"
     }
   },
   "snapshots" : [ {
     "sequence-number" : 1,
-    "snapshot-id" : 4563041413010929014,
-    "timestamp-ms" : 1782788904324,
+    "snapshot-id" : 1823100703727175782,
+    "timestamp-ms" : 1783308944631,
     "summary" : {
-      "operation" : "overwrite",
-      "spark.app.id" : "local-1782788892899",
-      "added-data-files" : "1",
-      "added-records" : "106",
-      "added-files-size" : "4478",
-      "changed-partition-count" : "1",
-      "total-records" : "106",
-      "total-files-size" : "4478",
-      "total-data-files" : "1",
+      "operation" : "append",
+      "spark.app.id" : "local-1783308870963",
+      "added-data-files" : "42",
+      "added-records" : "64",
+      "added-files-size" : "133470",
+      "changed-partition-count" : "42",
+      "total-records" : "64",
+      "total-files-size" : "133470",
+      "total-data-files" : "42",
       "total-delete-files" : "0",
       "total-position-deletes" : "0",
       "total-equality-deletes" : "0"
     },
-    "manifest-list" : "warehouse/bronze/fact_orders/metadata/snap-4563041413010929014-1-4c477f41-f005-490e-9851-67a7def632b4.avro",
+    "manifest-list" : "warehouse/bronze/fact_orders/metadata/snap-1823100703727175782-1-1fd01f79-29f7-4cf8-ae41-815f8664a619.avro",
     "schema-id" : 0
   }, {
     "sequence-number" : 2,
-    "snapshot-id" : 4552801250785720225,
-    "timestamp-ms" : 1782794943789,
+    "snapshot-id" : 2187814970472409422,
+    "parent-snapshot-id" : 1823100703727175782,
+    "timestamp-ms" : 1783308946631,
     "summary" : {
-      "operation" : "overwrite",
-      "spark.app.id" : "local-1782794931373",
-      "added-data-files" : "1",
-      "added-records" : "10193",
-      "added-files-size" : "71950",
-      "changed-partition-count" : "1",
-      "total-records" : "10193",
-      "total-files-size" : "71950",
-      "total-data-files" : "1",
+      "operation" : "append",
+      "spark.app.id" : "local-1783308870963",
+      "added-data-files" : "148",
+      "added-records" : "294",
+      "added-files-size" : "476416",
+      "changed-partition-count" : "148",
+      "total-records" : "358",
+      "total-files-size" : "609886",
+      "total-data-files" : "190",
       "total-delete-files" : "0",
       "total-position-deletes" : "0",
       "total-equality-deletes" : "0"
     },
-    "manifest-list" : "warehouse/bronze/fact_orders/metadata/snap-4552801250785720225-1-61fee282-55a6-4f14-a9c3-da543dd0b4d6.avro",
+    "manifest-list" : "warehouse/bronze/fact_orders/metadata/snap-2187814970472409422-1-7d58bbd3-08e7-4a57-a2b3-3d054cef560e.avro",
     "schema-id" : 0
   }, {
     "sequence-number" : 3,
-    "snapshot-id" : 2622065732425667390,
-    "timestamp-ms" : 1782806945747,
+    "snapshot-id" : 676103181257482033,
+    "parent-snapshot-id" : 2187814970472409422,
+    "timestamp-ms" : 1783308949340,
     "summary" : {
-      "operation" : "overwrite",
-      "spark.app.id" : "local-1782806932509",
-      "added-data-files" : "1",
-      "added-records" : "10193",
-      "added-files-size" : "71950",
-      "changed-partition-count" : "1",
-      "total-records" : "10193",
-      "total-files-size" : "71950",
-      "total-data-files" : "1",
+      "operation" : "append",
+      "spark.app.id" : "local-1783308870963",
+      "added-data-files" : "228",
+      "added-records" : "544",
+      "added-files-size" : "742333",
+      "changed-partition-count" : "228",
+      "total-records" : "902",
+      "total-files-size" : "1352219",
+      "total-data-files" : "418",
       "total-delete-files" : "0",
       "total-position-deletes" : "0",
       "total-equality-deletes" : "0"
     },
-    "manifest-list" : "warehouse/bronze/fact_orders/metadata/snap-2622065732425667390-1-b0c7746f-8ff0-4213-83d7-45aa5c38cdab.avro",
+    "manifest-list" : "warehouse/bronze/fact_orders/metadata/snap-676103181257482033-1-17bc1342-d74f-48b0-b084-1e45169720d5.avro",
     "schema-id" : 0
   } ],
   "statistics" : [ ],
   "partition-statistics" : [ ],
   "snapshot-log" : [ {
-    "timestamp-ms" : 1782788904324,
-    "snapshot-id" : 4563041413010929014
+    "timestamp-ms" : 1783308944631,
+    "snapshot-id" : 1823100703727175782
   }, {
-    "timestamp-ms" : 1782794943789,
-    "snapshot-id" : 4552801250785720225
+    "timestamp-ms" : 1783308946631,
+    "snapshot-id" : 2187814970472409422
   }, {
-    "timestamp-ms" : 1782806945747,
-    "snapshot-id" : 2622065732425667390
+    "timestamp-ms" : 1783308949340,
+    "snapshot-id" : 676103181257482033
   } ],
   "metadata-log" : [ {
-    "timestamp-ms" : 1782788904324,
+    "timestamp-ms" : 1783308944631,
     "metadata-file" : "warehouse/bronze/fact_orders/metadata/v1.metadata.json"
   }, {
-    "timestamp-ms" : 1782794943789,
+    "timestamp-ms" : 1783308946631,
     "metadata-file" : "warehouse/bronze/fact_orders/metadata/v2.metadata.json"
   } ]
 }

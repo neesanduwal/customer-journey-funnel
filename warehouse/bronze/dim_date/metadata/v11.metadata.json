@@ -1,0 +1,371 @@
+{
+  "format-version" : 2,
+  "table-uuid" : "13853bb2-b3c9-4149-a57b-34d55b08bc35",
+  "location" : "warehouse/bronze/dim_date",
+  "last-sequence-number" : 11,
+  "last-updated-ms" : 1783074477353,
+  "last-column-id" : 10,
+  "current-schema-id" : 0,
+  "schemas" : [ {
+    "type" : "struct",
+    "schema-id" : 0,
+    "fields" : [ {
+      "id" : 1,
+      "name" : "date_key",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 2,
+      "name" : "full_date",
+      "required" : false,
+      "type" : "date"
+    }, {
+      "id" : 3,
+      "name" : "day_of_week",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 4,
+      "name" : "day_name",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 5,
+      "name" : "week_of_year",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 6,
+      "name" : "month",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 7,
+      "name" : "month_name",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 8,
+      "name" : "quarter",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 9,
+      "name" : "year",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 10,
+      "name" : "is_weekend",
+      "required" : false,
+      "type" : "boolean"
+    } ]
+  } ],
+  "default-spec-id" : 0,
+  "partition-specs" : [ {
+    "spec-id" : 0,
+    "fields" : [ ]
+  } ],
+  "last-partition-id" : 999,
+  "default-sort-order-id" : 0,
+  "sort-orders" : [ {
+    "order-id" : 0,
+    "fields" : [ ]
+  } ],
+  "properties" : {
+    "owner" : "nishan.duwal",
+    "write.parquet.compression-codec" : "zstd"
+  },
+  "current-snapshot-id" : 3066398270655903411,
+  "refs" : {
+    "main" : {
+      "snapshot-id" : 3066398270655903411,
+      "type" : "branch"
+    }
+  },
+  "snapshots" : [ {
+    "sequence-number" : 1,
+    "snapshot-id" : 7799080585643985892,
+    "timestamp-ms" : 1782788902422,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1782788892899",
+      "added-data-files" : "1",
+      "added-records" : "733",
+      "added-files-size" : "7005",
+      "changed-partition-count" : "1",
+      "total-records" : "733",
+      "total-files-size" : "7005",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/bronze/dim_date/metadata/snap-7799080585643985892-1-25d78c32-583a-4c9e-9394-670676d96628.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 2,
+    "snapshot-id" : 6394366803553696907,
+    "timestamp-ms" : 1782794940890,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1782794931373",
+      "added-data-files" : "1",
+      "added-records" : "748",
+      "added-files-size" : "7063",
+      "changed-partition-count" : "1",
+      "total-records" : "748",
+      "total-files-size" : "7063",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/bronze/dim_date/metadata/snap-6394366803553696907-1-77024062-7c92-448a-8c76-9f2ab1ea6ce5.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 3,
+    "snapshot-id" : 7502296990918799204,
+    "timestamp-ms" : 1782806942669,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1782806932509",
+      "added-data-files" : "1",
+      "added-records" : "748",
+      "added-files-size" : "7063",
+      "changed-partition-count" : "1",
+      "total-records" : "748",
+      "total-files-size" : "7063",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/bronze/dim_date/metadata/snap-7502296990918799204-1-bade4505-286f-40c5-b576-bbf358c15d39.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 4,
+    "snapshot-id" : 7915100644368266673,
+    "timestamp-ms" : 1782807203624,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1782807194653",
+      "changed-partition-count" : "0",
+      "total-records" : "0",
+      "total-files-size" : "0",
+      "total-data-files" : "0",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/bronze/dim_date/metadata/snap-7915100644368266673-1-9ae318a8-3031-418f-808a-cfb6028e38a4.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 5,
+    "snapshot-id" : 5767458966373491882,
+    "timestamp-ms" : 1782807341902,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1782807332091",
+      "added-data-files" : "1",
+      "added-records" : "748",
+      "added-files-size" : "7063",
+      "changed-partition-count" : "1",
+      "total-records" : "748",
+      "total-files-size" : "7063",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/bronze/dim_date/metadata/snap-5767458966373491882-1-75d5e89d-3c33-4dd9-ae46-2ef6bee809e8.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 6,
+    "snapshot-id" : 1792397572059656819,
+    "timestamp-ms" : 1782807498948,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1782807488097",
+      "added-data-files" : "1",
+      "added-records" : "748",
+      "added-files-size" : "7063",
+      "changed-partition-count" : "1",
+      "total-records" : "748",
+      "total-files-size" : "7063",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/bronze/dim_date/metadata/snap-1792397572059656819-1-d0672b3e-ebc8-47f5-a144-98a80c29b69d.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 7,
+    "snapshot-id" : 6189356690044409860,
+    "timestamp-ms" : 1782807739862,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1782807729998",
+      "added-data-files" : "1",
+      "added-records" : "748",
+      "added-files-size" : "7063",
+      "changed-partition-count" : "1",
+      "total-records" : "748",
+      "total-files-size" : "7063",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/bronze/dim_date/metadata/snap-6189356690044409860-1-d3f6596d-58d3-46be-b3db-d3163d814c51.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 8,
+    "snapshot-id" : 1792672905912237253,
+    "timestamp-ms" : 1782807963376,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1782807953648",
+      "added-data-files" : "1",
+      "added-records" : "748",
+      "added-files-size" : "7063",
+      "changed-partition-count" : "1",
+      "total-records" : "748",
+      "total-files-size" : "7063",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/bronze/dim_date/metadata/snap-1792672905912237253-1-18dd52df-814a-429b-bcf3-9447aff78e3c.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 9,
+    "snapshot-id" : 4149061020026647028,
+    "timestamp-ms" : 1783051784154,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1783051772799",
+      "added-data-files" : "1",
+      "added-records" : "3121",
+      "added-files-size" : "19580",
+      "changed-partition-count" : "1",
+      "total-records" : "3121",
+      "total-files-size" : "19580",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/bronze/dim_date/metadata/snap-4149061020026647028-1-452e707f-235f-413d-a0c4-80b45084d732.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 10,
+    "snapshot-id" : 7872102486781630284,
+    "timestamp-ms" : 1783074252629,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1783074223862",
+      "added-data-files" : "1",
+      "added-records" : "3121",
+      "added-files-size" : "19580",
+      "changed-partition-count" : "1",
+      "total-records" : "3121",
+      "total-files-size" : "19580",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/bronze/dim_date/metadata/snap-7872102486781630284-1-42e32e35-b92a-4bb6-b424-b644c810daed.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 11,
+    "snapshot-id" : 3066398270655903411,
+    "timestamp-ms" : 1783074477353,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1783074465697",
+      "added-data-files" : "1",
+      "added-records" : "3121",
+      "added-files-size" : "19580",
+      "changed-partition-count" : "1",
+      "total-records" : "3121",
+      "total-files-size" : "19580",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/bronze/dim_date/metadata/snap-3066398270655903411-1-c02717a5-3350-444e-a995-c83d4cb82bd1.avro",
+    "schema-id" : 0
+  } ],
+  "statistics" : [ ],
+  "partition-statistics" : [ ],
+  "snapshot-log" : [ {
+    "timestamp-ms" : 1782788902422,
+    "snapshot-id" : 7799080585643985892
+  }, {
+    "timestamp-ms" : 1782794940890,
+    "snapshot-id" : 6394366803553696907
+  }, {
+    "timestamp-ms" : 1782806942669,
+    "snapshot-id" : 7502296990918799204
+  }, {
+    "timestamp-ms" : 1782807203624,
+    "snapshot-id" : 7915100644368266673
+  }, {
+    "timestamp-ms" : 1782807341902,
+    "snapshot-id" : 5767458966373491882
+  }, {
+    "timestamp-ms" : 1782807498948,
+    "snapshot-id" : 1792397572059656819
+  }, {
+    "timestamp-ms" : 1782807739862,
+    "snapshot-id" : 6189356690044409860
+  }, {
+    "timestamp-ms" : 1782807963376,
+    "snapshot-id" : 1792672905912237253
+  }, {
+    "timestamp-ms" : 1783051784154,
+    "snapshot-id" : 4149061020026647028
+  }, {
+    "timestamp-ms" : 1783074252629,
+    "snapshot-id" : 7872102486781630284
+  }, {
+    "timestamp-ms" : 1783074477353,
+    "snapshot-id" : 3066398270655903411
+  } ],
+  "metadata-log" : [ {
+    "timestamp-ms" : 1782788902422,
+    "metadata-file" : "warehouse/bronze/dim_date/metadata/v1.metadata.json"
+  }, {
+    "timestamp-ms" : 1782794940890,
+    "metadata-file" : "warehouse/bronze/dim_date/metadata/v2.metadata.json"
+  }, {
+    "timestamp-ms" : 1782806942669,
+    "metadata-file" : "warehouse/bronze/dim_date/metadata/v3.metadata.json"
+  }, {
+    "timestamp-ms" : 1782807203624,
+    "metadata-file" : "warehouse/bronze/dim_date/metadata/v4.metadata.json"
+  }, {
+    "timestamp-ms" : 1782807341902,
+    "metadata-file" : "warehouse/bronze/dim_date/metadata/v5.metadata.json"
+  }, {
+    "timestamp-ms" : 1782807498948,
+    "metadata-file" : "warehouse/bronze/dim_date/metadata/v6.metadata.json"
+  }, {
+    "timestamp-ms" : 1782807739862,
+    "metadata-file" : "warehouse/bronze/dim_date/metadata/v7.metadata.json"
+  }, {
+    "timestamp-ms" : 1782807963376,
+    "metadata-file" : "warehouse/bronze/dim_date/metadata/v8.metadata.json"
+  }, {
+    "timestamp-ms" : 1783051784154,
+    "metadata-file" : "warehouse/bronze/dim_date/metadata/v9.metadata.json"
+  }, {
+    "timestamp-ms" : 1783074252629,
+    "metadata-file" : "warehouse/bronze/dim_date/metadata/v10.metadata.json"
+  } ]
+}

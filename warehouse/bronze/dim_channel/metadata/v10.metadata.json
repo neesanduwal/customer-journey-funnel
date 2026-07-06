@@ -1,0 +1,310 @@
+{
+  "format-version" : 2,
+  "table-uuid" : "9f511486-9c9a-4291-a9bf-4c83c9aa1534",
+  "location" : "warehouse/bronze/dim_channel",
+  "last-sequence-number" : 10,
+  "last-updated-ms" : 1783074247996,
+  "last-column-id" : 3,
+  "current-schema-id" : 0,
+  "schemas" : [ {
+    "type" : "struct",
+    "schema-id" : 0,
+    "fields" : [ {
+      "id" : 1,
+      "name" : "channel_key",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 2,
+      "name" : "channel_name",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 3,
+      "name" : "channel_category",
+      "required" : false,
+      "type" : "string"
+    } ]
+  } ],
+  "default-spec-id" : 0,
+  "partition-specs" : [ {
+    "spec-id" : 0,
+    "fields" : [ ]
+  } ],
+  "last-partition-id" : 999,
+  "default-sort-order-id" : 0,
+  "sort-orders" : [ {
+    "order-id" : 0,
+    "fields" : [ ]
+  } ],
+  "properties" : {
+    "owner" : "nishan.duwal",
+    "write.parquet.compression-codec" : "zstd"
+  },
+  "current-snapshot-id" : 1841035839997752047,
+  "refs" : {
+    "main" : {
+      "snapshot-id" : 1841035839997752047,
+      "type" : "branch"
+    }
+  },
+  "snapshots" : [ {
+    "sequence-number" : 1,
+    "snapshot-id" : 4547658836225952605,
+    "timestamp-ms" : 1782788901017,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1782788892899",
+      "added-data-files" : "1",
+      "added-records" : "5",
+      "added-files-size" : "1078",
+      "changed-partition-count" : "1",
+      "total-records" : "5",
+      "total-files-size" : "1078",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/bronze/dim_channel/metadata/snap-4547658836225952605-1-ef8df2cd-2d57-4159-b7b6-310a258e2659.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 2,
+    "snapshot-id" : 6467958827359530973,
+    "timestamp-ms" : 1782794939402,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1782794931373",
+      "added-data-files" : "1",
+      "added-records" : "5",
+      "added-files-size" : "1078",
+      "changed-partition-count" : "1",
+      "total-records" : "5",
+      "total-files-size" : "1078",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/bronze/dim_channel/metadata/snap-6467958827359530973-1-bea26425-a44e-4bbb-8193-b5134abf67db.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 3,
+    "snapshot-id" : 6251337614835697228,
+    "timestamp-ms" : 1782806941046,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1782806932509",
+      "added-data-files" : "1",
+      "added-records" : "5",
+      "added-files-size" : "1078",
+      "changed-partition-count" : "1",
+      "total-records" : "5",
+      "total-files-size" : "1078",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/bronze/dim_channel/metadata/snap-6251337614835697228-1-cc3f4893-0fd0-488c-8758-1d830df7ba87.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 4,
+    "snapshot-id" : 4362876643487373607,
+    "timestamp-ms" : 1782807202208,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1782807194653",
+      "changed-partition-count" : "0",
+      "total-records" : "0",
+      "total-files-size" : "0",
+      "total-data-files" : "0",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/bronze/dim_channel/metadata/snap-4362876643487373607-1-48e51afa-0e88-4725-a509-5102a0d22ece.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 5,
+    "snapshot-id" : 223944960080962827,
+    "timestamp-ms" : 1782807340360,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1782807332091",
+      "added-data-files" : "1",
+      "added-records" : "5",
+      "added-files-size" : "1078",
+      "changed-partition-count" : "1",
+      "total-records" : "5",
+      "total-files-size" : "1078",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/bronze/dim_channel/metadata/snap-223944960080962827-1-bd9f8fc1-0c60-465a-88f4-725419d0e418.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 6,
+    "snapshot-id" : 5073920082150073802,
+    "timestamp-ms" : 1782807497152,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1782807488097",
+      "added-data-files" : "1",
+      "added-records" : "5",
+      "added-files-size" : "1078",
+      "changed-partition-count" : "1",
+      "total-records" : "5",
+      "total-files-size" : "1078",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/bronze/dim_channel/metadata/snap-5073920082150073802-1-109e0d42-a26f-40da-bf29-2750fd6fc08b.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 7,
+    "snapshot-id" : 5585659444341446851,
+    "timestamp-ms" : 1782807738317,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1782807729998",
+      "added-data-files" : "1",
+      "added-records" : "5",
+      "added-files-size" : "1078",
+      "changed-partition-count" : "1",
+      "total-records" : "5",
+      "total-files-size" : "1078",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/bronze/dim_channel/metadata/snap-5585659444341446851-1-4647cf4a-1e4a-4f1b-8386-35f12e14e329.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 8,
+    "snapshot-id" : 412700944383364481,
+    "timestamp-ms" : 1782807961680,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1782807953648",
+      "added-data-files" : "1",
+      "added-records" : "5",
+      "added-files-size" : "1078",
+      "changed-partition-count" : "1",
+      "total-records" : "5",
+      "total-files-size" : "1078",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/bronze/dim_channel/metadata/snap-412700944383364481-1-58a606fc-fa94-4445-8856-745258c50a14.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 9,
+    "snapshot-id" : 3871183329223977774,
+    "timestamp-ms" : 1783051782317,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1783051772799",
+      "added-data-files" : "1",
+      "added-records" : "8",
+      "added-files-size" : "1122",
+      "changed-partition-count" : "1",
+      "total-records" : "8",
+      "total-files-size" : "1122",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/bronze/dim_channel/metadata/snap-3871183329223977774-1-9391aee4-760f-4cc5-b499-67599d0b0a08.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 10,
+    "snapshot-id" : 1841035839997752047,
+    "timestamp-ms" : 1783074247996,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1783074223862",
+      "added-data-files" : "1",
+      "added-records" : "8",
+      "added-files-size" : "1122",
+      "changed-partition-count" : "1",
+      "total-records" : "8",
+      "total-files-size" : "1122",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/bronze/dim_channel/metadata/snap-1841035839997752047-1-ba997819-9a2c-4146-ba21-270ea9aa6d11.avro",
+    "schema-id" : 0
+  } ],
+  "statistics" : [ ],
+  "partition-statistics" : [ ],
+  "snapshot-log" : [ {
+    "timestamp-ms" : 1782788901017,
+    "snapshot-id" : 4547658836225952605
+  }, {
+    "timestamp-ms" : 1782794939402,
+    "snapshot-id" : 6467958827359530973
+  }, {
+    "timestamp-ms" : 1782806941046,
+    "snapshot-id" : 6251337614835697228
+  }, {
+    "timestamp-ms" : 1782807202208,
+    "snapshot-id" : 4362876643487373607
+  }, {
+    "timestamp-ms" : 1782807340360,
+    "snapshot-id" : 223944960080962827
+  }, {
+    "timestamp-ms" : 1782807497152,
+    "snapshot-id" : 5073920082150073802
+  }, {
+    "timestamp-ms" : 1782807738317,
+    "snapshot-id" : 5585659444341446851
+  }, {
+    "timestamp-ms" : 1782807961680,
+    "snapshot-id" : 412700944383364481
+  }, {
+    "timestamp-ms" : 1783051782317,
+    "snapshot-id" : 3871183329223977774
+  }, {
+    "timestamp-ms" : 1783074247996,
+    "snapshot-id" : 1841035839997752047
+  } ],
+  "metadata-log" : [ {
+    "timestamp-ms" : 1782788901017,
+    "metadata-file" : "warehouse/bronze/dim_channel/metadata/v1.metadata.json"
+  }, {
+    "timestamp-ms" : 1782794939402,
+    "metadata-file" : "warehouse/bronze/dim_channel/metadata/v2.metadata.json"
+  }, {
+    "timestamp-ms" : 1782806941046,
+    "metadata-file" : "warehouse/bronze/dim_channel/metadata/v3.metadata.json"
+  }, {
+    "timestamp-ms" : 1782807202208,
+    "metadata-file" : "warehouse/bronze/dim_channel/metadata/v4.metadata.json"
+  }, {
+    "timestamp-ms" : 1782807340360,
+    "metadata-file" : "warehouse/bronze/dim_channel/metadata/v5.metadata.json"
+  }, {
+    "timestamp-ms" : 1782807497152,
+    "metadata-file" : "warehouse/bronze/dim_channel/metadata/v6.metadata.json"
+  }, {
+    "timestamp-ms" : 1782807738317,
+    "metadata-file" : "warehouse/bronze/dim_channel/metadata/v7.metadata.json"
+  }, {
+    "timestamp-ms" : 1782807961680,
+    "metadata-file" : "warehouse/bronze/dim_channel/metadata/v8.metadata.json"
+  }, {
+    "timestamp-ms" : 1783051782317,
+    "metadata-file" : "warehouse/bronze/dim_channel/metadata/v9.metadata.json"
+  } ]
+}
