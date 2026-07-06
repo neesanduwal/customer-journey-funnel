@@ -1,0 +1,212 @@
+{
+  "format-version" : 2,
+  "table-uuid" : "1cc9d0d2-1a4e-4885-89ec-2dcdd39f069b",
+  "location" : "warehouse/gold/gold_daily_funnel",
+  "last-sequence-number" : 4,
+  "last-updated-ms" : 1783311165861,
+  "last-column-id" : 14,
+  "current-schema-id" : 0,
+  "schemas" : [ {
+    "type" : "struct",
+    "schema-id" : 0,
+    "fields" : [ {
+      "id" : 1,
+      "name" : "date_key",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 2,
+      "name" : "full_date",
+      "required" : false,
+      "type" : "date"
+    }, {
+      "id" : 3,
+      "name" : "day_of_week",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 4,
+      "name" : "day_name",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 5,
+      "name" : "week_of_year",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 6,
+      "name" : "month",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 7,
+      "name" : "month_name",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 8,
+      "name" : "quarter",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 9,
+      "name" : "year",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 10,
+      "name" : "is_weekend",
+      "required" : false,
+      "type" : "boolean"
+    }, {
+      "id" : 11,
+      "name" : "sessions",
+      "required" : false,
+      "type" : "long"
+    }, {
+      "id" : 12,
+      "name" : "leads",
+      "required" : false,
+      "type" : "long"
+    }, {
+      "id" : 13,
+      "name" : "orders",
+      "required" : false,
+      "type" : "long"
+    }, {
+      "id" : 14,
+      "name" : "revenue",
+      "required" : false,
+      "type" : "decimal(22, 2)"
+    } ]
+  } ],
+  "default-spec-id" : 0,
+  "partition-specs" : [ {
+    "spec-id" : 0,
+    "fields" : [ ]
+  } ],
+  "last-partition-id" : 999,
+  "default-sort-order-id" : 0,
+  "sort-orders" : [ {
+    "order-id" : 0,
+    "fields" : [ ]
+  } ],
+  "properties" : {
+    "owner" : "nishan.duwal",
+    "write.parquet.compression-codec" : "zstd"
+  },
+  "current-snapshot-id" : 5610606845895885585,
+  "refs" : {
+    "main" : {
+      "snapshot-id" : 5610606845895885585,
+      "type" : "branch"
+    }
+  },
+  "snapshots" : [ {
+    "sequence-number" : 1,
+    "snapshot-id" : 3516050576561145069,
+    "timestamp-ms" : 1782789277964,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1782789258476",
+      "added-data-files" : "1",
+      "added-records" : "733",
+      "added-files-size" : "11156",
+      "changed-partition-count" : "1",
+      "total-records" : "733",
+      "total-files-size" : "11156",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/gold/gold_daily_funnel/metadata/snap-3516050576561145069-1-5ed8e18a-cd1b-4b2b-a835-a1c348060a3e.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 2,
+    "snapshot-id" : 1450527772715997231,
+    "timestamp-ms" : 1782810669306,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1782810656414",
+      "added-data-files" : "1",
+      "added-records" : "748",
+      "added-files-size" : "11075",
+      "changed-partition-count" : "1",
+      "total-records" : "748",
+      "total-files-size" : "11075",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/gold/gold_daily_funnel/metadata/snap-1450527772715997231-1-0eddb71e-ac72-4a37-8712-a195475b3678.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 3,
+    "snapshot-id" : 1612096912381986921,
+    "timestamp-ms" : 1783051881793,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1783051868222",
+      "added-data-files" : "1",
+      "added-records" : "3121",
+      "added-files-size" : "32760",
+      "changed-partition-count" : "1",
+      "total-records" : "3121",
+      "total-files-size" : "32760",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/gold/gold_daily_funnel/metadata/snap-1612096912381986921-1-5b09c654-823c-402e-95ea-fcec3860fa10.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 4,
+    "snapshot-id" : 5610606845895885585,
+    "timestamp-ms" : 1783311165861,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1783311144674",
+      "added-data-files" : "1",
+      "added-records" : "3121",
+      "added-files-size" : "32720",
+      "changed-partition-count" : "1",
+      "total-records" : "3121",
+      "total-files-size" : "32720",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/gold/gold_daily_funnel/metadata/snap-5610606845895885585-1-d6b1eb39-c6a3-40d1-aa36-1bd5467a936d.avro",
+    "schema-id" : 0
+  } ],
+  "statistics" : [ ],
+  "partition-statistics" : [ ],
+  "snapshot-log" : [ {
+    "timestamp-ms" : 1782789277964,
+    "snapshot-id" : 3516050576561145069
+  }, {
+    "timestamp-ms" : 1782810669306,
+    "snapshot-id" : 1450527772715997231
+  }, {
+    "timestamp-ms" : 1783051881793,
+    "snapshot-id" : 1612096912381986921
+  }, {
+    "timestamp-ms" : 1783311165861,
+    "snapshot-id" : 5610606845895885585
+  } ],
+  "metadata-log" : [ {
+    "timestamp-ms" : 1782789277964,
+    "metadata-file" : "warehouse/gold/gold_daily_funnel/metadata/v1.metadata.json"
+  }, {
+    "timestamp-ms" : 1782810669306,
+    "metadata-file" : "warehouse/gold/gold_daily_funnel/metadata/v2.metadata.json"
+  }, {
+    "timestamp-ms" : 1783051881793,
+    "metadata-file" : "warehouse/gold/gold_daily_funnel/metadata/v3.metadata.json"
+  } ]
+}

@@ -1,10 +1,10 @@
 {
   "format-version" : 2,
-  "table-uuid" : "831fa2b4-2a6e-498c-8512-c1d1ffca1b1b",
+  "table-uuid" : "abcb9a3f-2d42-4d57-994f-9d291f49d88b",
   "location" : "warehouse/silver/fact_orders",
   "last-sequence-number" : 1,
-  "last-updated-ms" : 1783051831626,
-  "last-column-id" : 10,
+  "last-updated-ms" : 1783310956404,
+  "last-column-id" : 11,
   "current-schema-id" : 0,
   "schemas" : [ {
     "type" : "struct",
@@ -59,6 +59,11 @@
       "name" : "order_status",
       "required" : false,
       "type" : "string"
+    }, {
+      "id" : 11,
+      "name" : "event_date",
+      "required" : false,
+      "type" : "date"
     } ]
   } ],
   "default-spec-id" : 0,
@@ -76,39 +81,39 @@
     "owner" : "nishan.duwal",
     "write.parquet.compression-codec" : "zstd"
   },
-  "current-snapshot-id" : 6368012170136744495,
+  "current-snapshot-id" : 1126916350435728691,
   "refs" : {
     "main" : {
-      "snapshot-id" : 6368012170136744495,
+      "snapshot-id" : 1126916350435728691,
       "type" : "branch"
     }
   },
   "snapshots" : [ {
     "sequence-number" : 1,
-    "snapshot-id" : 6368012170136744495,
-    "timestamp-ms" : 1783051831626,
+    "snapshot-id" : 1126916350435728691,
+    "timestamp-ms" : 1783310956404,
     "summary" : {
       "operation" : "append",
-      "spark.app.id" : "local-1783051819579",
-      "added-data-files" : "1",
-      "added-records" : "8065",
-      "added-files-size" : "68263",
+      "spark.app.id" : "local-1783310910644",
+      "added-data-files" : "495",
+      "added-records" : "8001",
+      "added-files-size" : "1872933",
       "changed-partition-count" : "1",
-      "total-records" : "8065",
-      "total-files-size" : "68263",
-      "total-data-files" : "1",
+      "total-records" : "8001",
+      "total-files-size" : "1872933",
+      "total-data-files" : "495",
       "total-delete-files" : "0",
       "total-position-deletes" : "0",
       "total-equality-deletes" : "0"
     },
-    "manifest-list" : "warehouse/silver/fact_orders/metadata/snap-6368012170136744495-1-6831ccad-4a10-4d66-9077-f220482103e0.avro",
+    "manifest-list" : "warehouse/silver/fact_orders/metadata/snap-1126916350435728691-1-5ab858ab-d7e0-4c2d-af5c-5a1416940ed2.avro",
     "schema-id" : 0
   } ],
   "statistics" : [ ],
   "partition-statistics" : [ ],
   "snapshot-log" : [ {
-    "timestamp-ms" : 1783051831626,
-    "snapshot-id" : 6368012170136744495
+    "timestamp-ms" : 1783310956404,
+    "snapshot-id" : 1126916350435728691
   } ],
   "metadata-log" : [ ]
 }

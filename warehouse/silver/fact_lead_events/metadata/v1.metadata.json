@@ -1,10 +1,10 @@
 {
   "format-version" : 2,
-  "table-uuid" : "4add8ac6-3b09-4722-9181-0d7c46619cce",
+  "table-uuid" : "e7beda05-95cb-42e2-a81f-0d1923bf502a",
   "location" : "warehouse/silver/fact_lead_events",
   "last-sequence-number" : 1,
-  "last-updated-ms" : 1783051831045,
-  "last-column-id" : 7,
+  "last-updated-ms" : 1783310947687,
+  "last-column-id" : 8,
   "current-schema-id" : 0,
   "schemas" : [ {
     "type" : "struct",
@@ -44,6 +44,11 @@
       "name" : "lead_status",
       "required" : false,
       "type" : "string"
+    }, {
+      "id" : 8,
+      "name" : "event_date",
+      "required" : false,
+      "type" : "date"
     } ]
   } ],
   "default-spec-id" : 0,
@@ -61,39 +66,39 @@
     "owner" : "nishan.duwal",
     "write.parquet.compression-codec" : "zstd"
   },
-  "current-snapshot-id" : 7835546702890699394,
+  "current-snapshot-id" : 6149925107016310951,
   "refs" : {
     "main" : {
-      "snapshot-id" : 7835546702890699394,
+      "snapshot-id" : 6149925107016310951,
       "type" : "branch"
     }
   },
   "snapshots" : [ {
     "sequence-number" : 1,
-    "snapshot-id" : 7835546702890699394,
-    "timestamp-ms" : 1783051831045,
+    "snapshot-id" : 6149925107016310951,
+    "timestamp-ms" : 1783310947687,
     "summary" : {
       "operation" : "append",
-      "spark.app.id" : "local-1783051819579",
-      "added-data-files" : "1",
-      "added-records" : "37309",
-      "added-files-size" : "413930",
+      "spark.app.id" : "local-1783310910644",
+      "added-data-files" : "675",
+      "added-records" : "37201",
+      "added-files-size" : "2332239",
       "changed-partition-count" : "1",
-      "total-records" : "37309",
-      "total-files-size" : "413930",
-      "total-data-files" : "1",
+      "total-records" : "37201",
+      "total-files-size" : "2332239",
+      "total-data-files" : "675",
       "total-delete-files" : "0",
       "total-position-deletes" : "0",
       "total-equality-deletes" : "0"
     },
-    "manifest-list" : "warehouse/silver/fact_lead_events/metadata/snap-7835546702890699394-1-04ea532f-275f-4230-873d-c36a98369637.avro",
+    "manifest-list" : "warehouse/silver/fact_lead_events/metadata/snap-6149925107016310951-1-5eac6297-3e12-4ed3-b757-859e243c6b0e.avro",
     "schema-id" : 0
   } ],
   "statistics" : [ ],
   "partition-statistics" : [ ],
   "snapshot-log" : [ {
-    "timestamp-ms" : 1783051831045,
-    "snapshot-id" : 7835546702890699394
+    "timestamp-ms" : 1783310947687,
+    "snapshot-id" : 6149925107016310951
   } ],
   "metadata-log" : [ ]
 }

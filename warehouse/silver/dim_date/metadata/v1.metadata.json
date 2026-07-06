@@ -1,9 +1,9 @@
 {
   "format-version" : 2,
-  "table-uuid" : "1eb0d37c-8ec2-4966-b3e7-cfb5b0d60788",
+  "table-uuid" : "2a5c0bca-3c93-4955-a629-703b52b7cb4f",
   "location" : "warehouse/silver/dim_date",
   "last-sequence-number" : 1,
-  "last-updated-ms" : 1783051829478,
+  "last-updated-ms" : 1783310921105,
   "last-column-id" : 10,
   "current-schema-id" : 0,
   "schemas" : [ {
@@ -76,20 +76,20 @@
     "owner" : "nishan.duwal",
     "write.parquet.compression-codec" : "zstd"
   },
-  "current-snapshot-id" : 5224327649261686095,
+  "current-snapshot-id" : 2047914907650018552,
   "refs" : {
     "main" : {
-      "snapshot-id" : 5224327649261686095,
+      "snapshot-id" : 2047914907650018552,
       "type" : "branch"
     }
   },
   "snapshots" : [ {
     "sequence-number" : 1,
-    "snapshot-id" : 5224327649261686095,
-    "timestamp-ms" : 1783051829478,
+    "snapshot-id" : 2047914907650018552,
+    "timestamp-ms" : 1783310921105,
     "summary" : {
       "operation" : "append",
-      "spark.app.id" : "local-1783051819579",
+      "spark.app.id" : "local-1783310910644",
       "added-data-files" : "1",
       "added-records" : "3121",
       "added-files-size" : "19580",
@@ -101,14 +101,14 @@
       "total-position-deletes" : "0",
       "total-equality-deletes" : "0"
     },
-    "manifest-list" : "warehouse/silver/dim_date/metadata/snap-5224327649261686095-1-a092dc6d-dfc3-4ddf-af63-0889817225bf.avro",
+    "manifest-list" : "warehouse/silver/dim_date/metadata/snap-2047914907650018552-1-a01da3d1-8e6d-4801-bf9b-e5837b87b5d7.avro",
     "schema-id" : 0
   } ],
   "statistics" : [ ],
   "partition-statistics" : [ ],
   "snapshot-log" : [ {
-    "timestamp-ms" : 1783051829478,
-    "snapshot-id" : 5224327649261686095
+    "timestamp-ms" : 1783310921105,
+    "snapshot-id" : 2047914907650018552
   } ],
   "metadata-log" : [ ]
 }

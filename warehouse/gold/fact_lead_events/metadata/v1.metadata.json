@@ -1,0 +1,104 @@
+{
+  "format-version" : 2,
+  "table-uuid" : "7919fee7-247f-42db-a139-2aa3f00c4d10",
+  "location" : "warehouse/gold/fact_lead_events",
+  "last-sequence-number" : 1,
+  "last-updated-ms" : 1783311158614,
+  "last-column-id" : 8,
+  "current-schema-id" : 0,
+  "schemas" : [ {
+    "type" : "struct",
+    "schema-id" : 0,
+    "fields" : [ {
+      "id" : 1,
+      "name" : "lead_event_key",
+      "required" : false,
+      "type" : "long"
+    }, {
+      "id" : 2,
+      "name" : "lead_id",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 3,
+      "name" : "date_key",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 4,
+      "name" : "customer_key",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 5,
+      "name" : "channel_key",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 6,
+      "name" : "event_timestamp",
+      "required" : false,
+      "type" : "timestamptz"
+    }, {
+      "id" : 7,
+      "name" : "lead_status",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 8,
+      "name" : "event_date",
+      "required" : false,
+      "type" : "date"
+    } ]
+  } ],
+  "default-spec-id" : 0,
+  "partition-specs" : [ {
+    "spec-id" : 0,
+    "fields" : [ ]
+  } ],
+  "last-partition-id" : 999,
+  "default-sort-order-id" : 0,
+  "sort-orders" : [ {
+    "order-id" : 0,
+    "fields" : [ ]
+  } ],
+  "properties" : {
+    "owner" : "nishan.duwal",
+    "write.parquet.compression-codec" : "zstd"
+  },
+  "current-snapshot-id" : 7205281837559258918,
+  "refs" : {
+    "main" : {
+      "snapshot-id" : 7205281837559258918,
+      "type" : "branch"
+    }
+  },
+  "snapshots" : [ {
+    "sequence-number" : 1,
+    "snapshot-id" : 7205281837559258918,
+    "timestamp-ms" : 1783311158614,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1783311144674",
+      "added-data-files" : "169",
+      "added-records" : "37201",
+      "added-files-size" : "944440",
+      "changed-partition-count" : "1",
+      "total-records" : "37201",
+      "total-files-size" : "944440",
+      "total-data-files" : "169",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/gold/fact_lead_events/metadata/snap-7205281837559258918-1-bc2fb977-889f-4ae2-9b30-ed43400ca72c.avro",
+    "schema-id" : 0
+  } ],
+  "statistics" : [ ],
+  "partition-statistics" : [ ],
+  "snapshot-log" : [ {
+    "timestamp-ms" : 1783311158614,
+    "snapshot-id" : 7205281837559258918
+  } ],
+  "metadata-log" : [ ]
+}
