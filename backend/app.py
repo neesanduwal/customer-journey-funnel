@@ -1,8 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from services.router import router
-
+from backend.services.router import router
 app = FastAPI(
     title="Customer Journey AI",
     version="1.0"
