@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from backend.services.router import router
 
-app = FastAPI(title="Customer Journey AI")
+app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,

@@ -4,18 +4,18 @@ import Header from "../components/Header";
 import ChatWindow from "../components/ChatWindow";
 import ChatInput from "../components/ChatInput";
 
-import API from "../services/api";
+import api from "../services/api";
 
 function ChatPage() {
 
     const [messages, setMessages] = useState([
         {
             sender: "bot",
-            text: "Hello! Ask me anything about your customer journey data."
+            text: "Hello! Ask me about your customer journey."
         }
     ]);
 
-    async function sendQuestion(question) {
+    const sendQuestion = async (question) => {
 
         setMessages(prev => [
             ...prev,
@@ -27,7 +27,7 @@ function ChatPage() {
 
         try {
 
-            const response = await API.post("/chat", {
+            const response = await api.post("/chat", {
                 question
             });
 
@@ -39,31 +39,29 @@ function ChatPage() {
                 }
             ]);
 
-        } catch (err) {
+        }
 
-            console.error(err);
+        catch {
 
             setMessages(prev => [
                 ...prev,
                 {
                     sender: "bot",
-                    text: "Unable to contact backend."
+                    text: "Backend is not running."
                 }
             ]);
 
         }
 
-    }
+    };
 
     return (
 
-        <div
-            style={{
-                display: "flex",
-                flexDirection: "column",
-                height: "100vh"
-            }}
-        >
+        <div style={{
+            display: "flex",
+            flexDirection: "column",
+            height: "100vh"
+        }}>
 
             <Header />
 
