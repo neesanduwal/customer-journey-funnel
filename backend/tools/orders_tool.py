@@ -1,25 +1,26 @@
-from backend.services.metrics_service import spark
+from src.config.spark_session import create_spark_session
+from backend.tools.snapshot_tool import get_snapshot
+
+spark = create_spark_session()
 
 
-def get_total_orders():
+def get_orders():
 
     orders = spark.sql("""
+        SELECT COUNT(*) AS orders
+        FROM local.gold.fact_orders
+    """).first()["orders"]
 
-    SELECT
-        SUM(total_orders) AS orders
-    FROM local.gold.gold_customer_funnel
+    snapshot = get_snapshot("local.gold.fact_orders")
 
-    """).collect()[0]["orders"]
+    return f"""
+Total Orders : {orders}
 
-    snapshot = spark.sql("""
+Source Table : local.gold.fact_orders
 
-    SELECT MAX(full_date)
-    FROM local.gold.gold_daily_funnel
+Snapshot ID : {snapshot["snapshot_id"]}
 
-    """).collect()[0][0]
+Committed At : {snapshot["committed_at"]}
 
-    return {
-        "metric": "Orders",
-        "value": int(orders),
-        "snapshot": str(snapshot)
-    }
+As-of Date : {snapshot["committed_at"][:10]}
+"""

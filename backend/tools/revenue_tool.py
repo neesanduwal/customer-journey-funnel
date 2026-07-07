@@ -1,25 +1,26 @@
-from backend.services.metrics_service import spark
+from src.config.spark_session import create_spark_session
+from backend.tools.snapshot_tool import get_snapshot
+
+spark = create_spark_session()
 
 
-def get_total_revenue():
+def get_revenue():
 
     revenue = spark.sql("""
+        SELECT SUM(revenue) AS revenue
+        FROM local.gold.fact_orders
+    """).first()["revenue"]
 
-    SELECT
-        SUM(total_revenue) AS revenue
-    FROM local.gold.gold_customer_funnel
+    snapshot = get_snapshot("local.gold.fact_orders")
 
-    """).collect()[0]["revenue"]
+    return f"""
+Total Revenue : ${revenue:,.2f}
 
-    snapshot = spark.sql("""
+Source Table : local.gold.fact_orders
 
-    SELECT MAX(full_date) AS snapshot
-    FROM local.gold.gold_daily_funnel
+Snapshot ID : {snapshot["snapshot_id"]}
 
-    """).collect()[0]["snapshot"]
+Committed At : {snapshot["committed_at"]}
 
-    return {
-        "metric": "Revenue",
-        "value": float(revenue),
-        "snapshot": str(snapshot)
-    }
+As-of Date : {snapshot["committed_at"][:10]}
+"""

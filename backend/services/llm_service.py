@@ -1,19 +1,33 @@
 import os
+from pathlib import Path
 
 from dotenv import load_dotenv
 from langchain_groq import ChatGroq
 
-load_dotenv("backend/.env")
+# Explicitly load the .env from the project root
+env_path = Path(__file__).resolve().parents[2] / ".env"
+print("Loading .env from:", env_path)
+
+load_dotenv(env_path)
+
+api_key = os.getenv("GROQ_API_KEY")
+model = os.getenv("MODEL_NAME")
+
+print("API KEY:", repr(api_key))
+print("MODEL:", repr(model))
+
+if api_key is None:
+    raise Exception("GROQ_API_KEY not found")
+
+if model is None:
+    raise Exception("MODEL_NAME not found")
 
 llm = ChatGroq(
-    api_key=os.getenv("GROQ_API_KEY"),
-    model=os.getenv("MODEL_NAME"),
-    temperature=0
+    api_key=api_key,
+    model=model,
+    temperature=0,
 )
 
 
 def ask_llm(question: str):
-
-    response = llm.invoke(question)
-
-    return response.content
+    return llm.invoke(question).content
