@@ -13,31 +13,73 @@ def analytics_agent(question: str):
 
     q = question.lower()
 
-    date_match = re.search(r"\b\d{4}-\d{2}-\d{2}\b", q)
-    date = date_match.group(0) if date_match else None
+    dates = re.findall(r"\d{4}-\d{2}-\d{2}", question)
+    years = re.findall(r"\b20\d{2}\b", question)
 
-    # Revenue / Running / Orders / WoW require a date
-    if (
-        ("revenue" in q or "running" in q or "wow" in q or "order" in q)
-        and "yoy" not in q
-        and "year" not in q
-        and date is None
-    ):
-        return "Please provide a date in YYYY-MM-DD format."
+    date = dates[0] if dates else None
+
+    # =====================================================
+    # Revenue
+    # =====================================================
 
     if "revenue" in q and "running" not in q:
-        return get_revenue(date)
+
+        # Revenue supports either a date or a year
+        if not dates and not years:
+            return "Please provide a date (YYYY-MM-DD) or a year."
+
+        return get_revenue(question)
+
+    # =====================================================
+    # Orders
+    # =====================================================
 
     elif "order" in q:
+
+        if not date:
+            return "Please provide a date in YYYY-MM-DD format."
+
         return get_orders(date)
 
+    # =====================================================
+    # Running Total
+    # =====================================================
+
     elif "running" in q:
+
+        if not date:
+            return "Please provide a date in YYYY-MM-DD format."
+
         return get_running_total(date)
 
-    elif "week" in q or "wow" in q:
+    # =====================================================
+    # Week over Week
+    # =====================================================
+
+    elif "wow" in q or "week" in q:
+
+        if not date:
+            return "Please provide a date in YYYY-MM-DD format."
+
         return get_wow(date)
 
-    elif "yoy" in q or "year" in q:
+    # =====================================================
+    # Year over Year
+    # =====================================================
+
+    elif (
+        "yoy" in q
+        or "year over year" in q
+        or ("compare" in q and (len(years) >= 2 or len(dates) >= 2))
+    ):
+
+        if not dates and not years:
+            return "Please provide one date, two dates, or two years."
+
         return get_yoy(question)
+
+    # =====================================================
+    # Default LLM
+    # =====================================================
 
     return ask_llm(question)
