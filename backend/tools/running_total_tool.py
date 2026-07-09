@@ -4,22 +4,26 @@ from backend.tools.snapshot_tool import get_snapshot
 spark = create_spark_session()
 
 
-def get_running_total(where_clause=""):
+def get_running_total(date):
 
-    query = f"""
-        SELECT running_revenue
+    row = spark.sql(f"""
+        SELECT
+            full_date,
+            running_revenue
         FROM local.gold.gold_running_total
-        {where_clause}
-        ORDER BY full_date DESC
+        WHERE full_date = DATE('{date}')
         LIMIT 1
-    """
+    """).first()
 
-    row = spark.sql(query).first()
+    if row is None:
+        return f"No running total found for {date}"
 
     snapshot = get_snapshot("local.gold.gold_running_total")
 
     return f"""
-Running Revenue : {row['running_revenue']}
+Date : {row['full_date']}
+
+Running Revenue : ${row['running_revenue']:,.2f}
 
 Source Table : local.gold.gold_running_total
 

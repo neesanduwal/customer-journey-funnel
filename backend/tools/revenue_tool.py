@@ -4,22 +4,28 @@ from backend.tools.snapshot_tool import get_snapshot
 spark = create_spark_session()
 
 
-def get_revenue(where_clause=""):
+def get_revenue(date):
 
-    query = f"""
-        SELECT SUM(revenue) AS revenue
-        FROM local.gold.fact_orders
-        {where_clause}
-    """
+    row = spark.sql(f"""
+        SELECT
+            full_date,
+            revenue
+        FROM local.gold.gold_daily_funnel
+        WHERE full_date = DATE('{date}')
+        LIMIT 1
+    """).first()
 
-    revenue = spark.sql(query).first()["revenue"] or 0
+    if row is None:
+        return f"No revenue found for {date}"
 
-    snapshot = get_snapshot("local.gold.fact_orders")
+    snapshot = get_snapshot("local.gold.gold_daily_funnel")
 
     return f"""
-Total Revenue : ${revenue:,.2f}
+Date : {row['full_date']}
 
-Source Table : local.gold.fact_orders
+Revenue : ${row['revenue']:,.2f}
+
+Source Table : local.gold.gold_daily_funnel
 
 Snapshot ID : {snapshot["snapshot_id"]}
 

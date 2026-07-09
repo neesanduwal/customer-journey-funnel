@@ -7,14 +7,10 @@ spark = create_spark_session()
 def get_wow(date):
 
     row = spark.sql(f"""
-        SELECT
-            full_date,
-            revenue,
-            last_year,
-            wow_difference
+        SELECT *
         FROM local.gold.gold_week_over_week
-        WHERE WEEKOFYEAR(full_date) = WEEKOFYEAR(DATE('{date}'))
-        AND YEAR(full_date) = YEAR(DATE('{date}'))
+        WHERE WEEKOFYEAR(full_date)=WEEKOFYEAR(DATE('{date}'))
+        AND YEAR(full_date)=YEAR(DATE('{date}'))
         LIMIT 1
     """).first()
 
@@ -26,9 +22,9 @@ def get_wow(date):
     return f"""
 Week Starting : {row['full_date']}
 
-Current Year Revenue : ${row['revenue']:,.2f}
+Revenue : ${row['revenue']:,.2f}
 
-Same Week Last Year Revenue : ${row['last_year']:,.2f}
+Same Week Last Year : ${row['last_year']:,.2f}
 
 Difference : ${row['wow_difference']:,.2f}
 

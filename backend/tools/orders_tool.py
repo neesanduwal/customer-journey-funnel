@@ -4,22 +4,28 @@ from backend.tools.snapshot_tool import get_snapshot
 spark = create_spark_session()
 
 
-def get_orders(where_clause=""):
+def get_orders(date):
 
-    query = f"""
-        SELECT COUNT(*) AS orders
-        FROM local.gold.fact_orders
-        {where_clause}
-    """
+    row = spark.sql(f"""
+        SELECT
+            full_date,
+            orders
+        FROM local.gold.gold_daily_funnel
+        WHERE full_date = DATE('{date}')
+        LIMIT 1
+    """).first()
 
-    orders = spark.sql(query).first()["orders"]
+    if row is None:
+        return f"No orders found for {date}"
 
-    snapshot = get_snapshot("local.gold.fact_orders")
+    snapshot = get_snapshot("local.gold.gold_daily_funnel")
 
     return f"""
-Total Orders : {orders}
+Date : {row['full_date']}
 
-Source Table : local.gold.fact_orders
+Orders : {row['orders']}
+
+Source Table : local.gold.gold_daily_funnel
 
 Snapshot ID : {snapshot["snapshot_id"]}
 
