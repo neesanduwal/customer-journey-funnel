@@ -4,12 +4,15 @@ from backend.tools.snapshot_tool import get_snapshot
 spark = create_spark_session()
 
 
-def get_revenue():
+def get_revenue(where_clause=""):
 
-    revenue = spark.sql("""
+    query = f"""
         SELECT SUM(revenue) AS revenue
         FROM local.gold.fact_orders
-    """).first()["revenue"]
+        {where_clause}
+    """
+
+    revenue = spark.sql(query).first()["revenue"] or 0
 
     snapshot = get_snapshot("local.gold.fact_orders")
 

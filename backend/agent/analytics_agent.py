@@ -1,3 +1,5 @@
+import re
+
 from backend.services.llm_service import ask_llm
 
 from backend.tools.revenue_tool import get_revenue
@@ -11,6 +13,12 @@ def analytics_agent(question: str):
 
     q = question.lower()
 
+    year_match = re.search(r"\b(20\d{2})\b", q)
+    year = int(year_match.group(1)) if year_match else None
+
+    date_match = re.search(r"\b\d{4}-\d{2}-\d{2}\b", q)
+    date = date_match.group(0) if date_match else None
+
     if "revenue" in q and "running" not in q:
         return get_revenue()
 
@@ -21,10 +29,10 @@ def analytics_agent(question: str):
         return get_running_total()
 
     elif "week" in q or "wow" in q:
-        return get_wow()
+        return get_wow(date)
 
     elif "year" in q or "yoy" in q:
-        return get_yoy()
+        return get_yoy(year)
 
     else:
         return ask_llm(question)

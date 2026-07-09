@@ -4,29 +4,33 @@ from backend.tools.snapshot_tool import get_snapshot
 spark = create_spark_session()
 
 
-def get_wow():
+def get_wow(date):
 
-    row = spark.sql("""
+    row = spark.sql(f"""
         SELECT
             full_date,
             revenue,
-            last_week,
+            last_year,
             wow_difference
         FROM local.gold.gold_week_over_week
-        ORDER BY full_date DESC
+        WHERE WEEKOFYEAR(full_date) = WEEKOFYEAR(DATE('{date}'))
+        AND YEAR(full_date) = YEAR(DATE('{date}'))
         LIMIT 1
     """).first()
+
+    if row is None:
+        return f"No Week-over-Week data found for {date}"
 
     snapshot = get_snapshot("local.gold.gold_week_over_week")
 
     return f"""
-Latest Date : {row['full_date']}
+Week Starting : {row['full_date']}
 
-Revenue : {row['revenue']}
+Current Year Revenue : ${row['revenue']:,.2f}
 
-Last Week : {row['last_week']}
+Same Week Last Year Revenue : ${row['last_year']:,.2f}
 
-WoW Difference : {row['wow_difference']}
+Difference : ${row['wow_difference']:,.2f}
 
 Source Table : local.gold.gold_week_over_week
 

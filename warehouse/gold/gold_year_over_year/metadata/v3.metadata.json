@@ -1,0 +1,136 @@
+{
+  "format-version" : 2,
+  "table-uuid" : "eb8fce9e-f799-4b08-ad17-2f912f735f17",
+  "location" : "warehouse/gold/gold_year_over_year",
+  "last-sequence-number" : 3,
+  "last-updated-ms" : 1783569839693,
+  "last-column-id" : 4,
+  "current-schema-id" : 0,
+  "schemas" : [ {
+    "type" : "struct",
+    "schema-id" : 0,
+    "fields" : [ {
+      "id" : 1,
+      "name" : "full_date",
+      "required" : false,
+      "type" : "date"
+    }, {
+      "id" : 2,
+      "name" : "revenue",
+      "required" : false,
+      "type" : "decimal(22, 2)"
+    }, {
+      "id" : 3,
+      "name" : "last_year",
+      "required" : false,
+      "type" : "decimal(22, 2)"
+    }, {
+      "id" : 4,
+      "name" : "yoy_difference",
+      "required" : false,
+      "type" : "decimal(23, 2)"
+    } ]
+  } ],
+  "default-spec-id" : 0,
+  "partition-specs" : [ {
+    "spec-id" : 0,
+    "fields" : [ ]
+  } ],
+  "last-partition-id" : 999,
+  "default-sort-order-id" : 0,
+  "sort-orders" : [ {
+    "order-id" : 0,
+    "fields" : [ ]
+  } ],
+  "properties" : {
+    "owner" : "nishan.duwal",
+    "write.parquet.compression-codec" : "zstd"
+  },
+  "current-snapshot-id" : 3228691654129662555,
+  "refs" : {
+    "main" : {
+      "snapshot-id" : 3228691654129662555,
+      "type" : "branch"
+    }
+  },
+  "snapshots" : [ {
+    "sequence-number" : 1,
+    "snapshot-id" : 7060518634496657170,
+    "timestamp-ms" : 1782810912576,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1782810903692",
+      "added-data-files" : "1",
+      "added-records" : "748",
+      "added-files-size" : "6170",
+      "changed-partition-count" : "1",
+      "total-records" : "748",
+      "total-files-size" : "6170",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/gold/gold_year_over_year/metadata/snap-7060518634496657170-1-c5bccca7-5017-4e75-b3c3-8f9262c758a1.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 2,
+    "snapshot-id" : 2301206268257485345,
+    "timestamp-ms" : 1782892695891,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1782892684464",
+      "added-data-files" : "1",
+      "added-records" : "748",
+      "added-files-size" : "6170",
+      "changed-partition-count" : "1",
+      "total-records" : "748",
+      "total-files-size" : "6170",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/gold/gold_year_over_year/metadata/snap-2301206268257485345-1-47fe9e19-c35f-4d35-9aea-ca57b0c4fae2.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 3,
+    "snapshot-id" : 3228691654129662555,
+    "timestamp-ms" : 1783569839693,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1783569827584",
+      "added-data-files" : "1",
+      "added-records" : "3121",
+      "added-files-size" : "27712",
+      "changed-partition-count" : "1",
+      "total-records" : "3121",
+      "total-files-size" : "27712",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/gold/gold_year_over_year/metadata/snap-3228691654129662555-1-0cba38cc-ca19-46d3-8fbe-db7d0d392ca5.avro",
+    "schema-id" : 0
+  } ],
+  "statistics" : [ ],
+  "partition-statistics" : [ ],
+  "snapshot-log" : [ {
+    "timestamp-ms" : 1782810912576,
+    "snapshot-id" : 7060518634496657170
+  }, {
+    "timestamp-ms" : 1782892695891,
+    "snapshot-id" : 2301206268257485345
+  }, {
+    "timestamp-ms" : 1783569839693,
+    "snapshot-id" : 3228691654129662555
+  } ],
+  "metadata-log" : [ {
+    "timestamp-ms" : 1782810912576,
+    "metadata-file" : "warehouse/gold/gold_year_over_year/metadata/v1.metadata.json"
+  }, {
+    "timestamp-ms" : 1782892695891,
+    "metadata-file" : "warehouse/gold/gold_year_over_year/metadata/v2.metadata.json"
+  } ]
+}

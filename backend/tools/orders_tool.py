@@ -4,12 +4,15 @@ from backend.tools.snapshot_tool import get_snapshot
 spark = create_spark_session()
 
 
-def get_orders():
+def get_orders(where_clause=""):
 
-    orders = spark.sql("""
+    query = f"""
         SELECT COUNT(*) AS orders
         FROM local.gold.fact_orders
-    """).first()["orders"]
+        {where_clause}
+    """
+
+    orders = spark.sql(query).first()["orders"]
 
     snapshot = get_snapshot("local.gold.fact_orders")
 

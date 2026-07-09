@@ -4,29 +4,36 @@ from backend.tools.snapshot_tool import get_snapshot
 spark = create_spark_session()
 
 
-def get_yoy():
+def get_yoy(date):
 
-    row = spark.sql("""
+    row = spark.sql(f"""
         SELECT
             full_date,
             revenue,
             last_year,
             yoy_difference
         FROM local.gold.gold_year_over_year
-        ORDER BY full_date DESC
+        WHERE full_date = DATE('{date}')
         LIMIT 1
     """).first()
+
+    if row is None:
+        return f"No Year-over-Year data found for {date}"
+
+    revenue = row["revenue"] or 0
+    last_year = row["last_year"] or 0
+    yoy_difference = row["yoy_difference"] or 0
 
     snapshot = get_snapshot("local.gold.gold_year_over_year")
 
     return f"""
-Latest Date : {row['full_date']}
+Date : {row['full_date']}
 
-Revenue : {row['revenue']}
+Revenue : ${revenue:,.2f}
 
-Last Year : {row['last_year']}
+Last Year Revenue : ${last_year:,.2f}
 
-YoY Difference : {row['yoy_difference']}
+YoY Difference : ${yoy_difference:,.2f}
 
 Source Table : local.gold.gold_year_over_year
 

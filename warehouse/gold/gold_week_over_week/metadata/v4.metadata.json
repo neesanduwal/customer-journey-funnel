@@ -1,0 +1,186 @@
+{
+  "format-version" : 2,
+  "table-uuid" : "ed884d27-e0bf-40ba-af59-593b56990e04",
+  "location" : "warehouse/gold/gold_week_over_week",
+  "last-sequence-number" : 4,
+  "last-updated-ms" : 1783570573008,
+  "last-column-id" : 5,
+  "current-schema-id" : 1,
+  "schemas" : [ {
+    "type" : "struct",
+    "schema-id" : 0,
+    "fields" : [ {
+      "id" : 1,
+      "name" : "full_date",
+      "required" : false,
+      "type" : "date"
+    }, {
+      "id" : 2,
+      "name" : "revenue",
+      "required" : false,
+      "type" : "decimal(22, 2)"
+    }, {
+      "id" : 3,
+      "name" : "last_week",
+      "required" : false,
+      "type" : "decimal(22, 2)"
+    }, {
+      "id" : 4,
+      "name" : "wow_difference",
+      "required" : false,
+      "type" : "decimal(23, 2)"
+    } ]
+  }, {
+    "type" : "struct",
+    "schema-id" : 1,
+    "fields" : [ {
+      "id" : 1,
+      "name" : "full_date",
+      "required" : false,
+      "type" : "date"
+    }, {
+      "id" : 2,
+      "name" : "revenue",
+      "required" : false,
+      "type" : "decimal(32, 2)"
+    }, {
+      "id" : 5,
+      "name" : "last_year",
+      "required" : false,
+      "type" : "decimal(32, 2)"
+    }, {
+      "id" : 4,
+      "name" : "wow_difference",
+      "required" : false,
+      "type" : "decimal(33, 2)"
+    } ]
+  } ],
+  "default-spec-id" : 0,
+  "partition-specs" : [ {
+    "spec-id" : 0,
+    "fields" : [ ]
+  } ],
+  "last-partition-id" : 999,
+  "default-sort-order-id" : 0,
+  "sort-orders" : [ {
+    "order-id" : 0,
+    "fields" : [ ]
+  } ],
+  "properties" : {
+    "owner" : "nishan.duwal",
+    "write.parquet.compression-codec" : "zstd"
+  },
+  "current-snapshot-id" : 8236631497796394375,
+  "refs" : {
+    "main" : {
+      "snapshot-id" : 8236631497796394375,
+      "type" : "branch"
+    }
+  },
+  "snapshots" : [ {
+    "sequence-number" : 1,
+    "snapshot-id" : 3900196110708264005,
+    "timestamp-ms" : 1782810912055,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1782810903692",
+      "added-data-files" : "1",
+      "added-records" : "748",
+      "added-files-size" : "7958",
+      "changed-partition-count" : "1",
+      "total-records" : "748",
+      "total-files-size" : "7958",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/gold/gold_week_over_week/metadata/snap-3900196110708264005-1-2381d4cb-e0c2-43a5-a45c-ca0bbaa61eb9.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 2,
+    "snapshot-id" : 2072775251644706069,
+    "timestamp-ms" : 1782892695283,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1782892684464",
+      "added-data-files" : "1",
+      "added-records" : "748",
+      "added-files-size" : "7958",
+      "changed-partition-count" : "1",
+      "total-records" : "748",
+      "total-files-size" : "7958",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/gold/gold_week_over_week/metadata/snap-2072775251644706069-1-1ce4a43b-eeee-48ec-9304-1b5733c7143a.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 3,
+    "snapshot-id" : 8589975100676026938,
+    "timestamp-ms" : 1783569838755,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1783569827584",
+      "added-data-files" : "1",
+      "added-records" : "3121",
+      "added-files-size" : "28209",
+      "changed-partition-count" : "1",
+      "total-records" : "3121",
+      "total-files-size" : "28209",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/gold/gold_week_over_week/metadata/snap-8589975100676026938-1-f38fd2b9-0e98-4cb6-a832-ef09b66c6f9e.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 4,
+    "snapshot-id" : 8236631497796394375,
+    "timestamp-ms" : 1783570573008,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1783570562235",
+      "added-data-files" : "1",
+      "added-records" : "447",
+      "added-files-size" : "6545",
+      "changed-partition-count" : "1",
+      "total-records" : "447",
+      "total-files-size" : "6545",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "warehouse/gold/gold_week_over_week/metadata/snap-8236631497796394375-1-d046895f-a1f6-40d6-8550-569fbf422983.avro",
+    "schema-id" : 1
+  } ],
+  "statistics" : [ ],
+  "partition-statistics" : [ ],
+  "snapshot-log" : [ {
+    "timestamp-ms" : 1782810912055,
+    "snapshot-id" : 3900196110708264005
+  }, {
+    "timestamp-ms" : 1782892695283,
+    "snapshot-id" : 2072775251644706069
+  }, {
+    "timestamp-ms" : 1783569838755,
+    "snapshot-id" : 8589975100676026938
+  }, {
+    "timestamp-ms" : 1783570573008,
+    "snapshot-id" : 8236631497796394375
+  } ],
+  "metadata-log" : [ {
+    "timestamp-ms" : 1782810912055,
+    "metadata-file" : "warehouse/gold/gold_week_over_week/metadata/v1.metadata.json"
+  }, {
+    "timestamp-ms" : 1782892695283,
+    "metadata-file" : "warehouse/gold/gold_week_over_week/metadata/v2.metadata.json"
+  }, {
+    "timestamp-ms" : 1783569838755,
+    "metadata-file" : "warehouse/gold/gold_week_over_week/metadata/v3.metadata.json"
+  } ]
+}

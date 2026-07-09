@@ -4,14 +4,17 @@ from backend.tools.snapshot_tool import get_snapshot
 spark = create_spark_session()
 
 
-def get_running_total():
+def get_running_total(where_clause=""):
 
-    row = spark.sql("""
+    query = f"""
         SELECT running_revenue
         FROM local.gold.gold_running_total
+        {where_clause}
         ORDER BY full_date DESC
         LIMIT 1
-    """).first()
+    """
+
+    row = spark.sql(query).first()
 
     snapshot = get_snapshot("local.gold.gold_running_total")
 
