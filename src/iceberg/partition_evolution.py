@@ -126,9 +126,10 @@ else:
     update = table.updateSpec()
 
     if day_field_id is not None:
-        update.removeField(day_field_id)
+        update.removeField("event_date_day")
 
     update.addField(
+        "event_date_month",
         spark._jvm.org.apache.iceberg.expressions.Expressions.month("event_date")
     )
 

@@ -53,6 +53,24 @@ def analytics_agent(question: str):
         return get_running_total(date)
 
     # =====================================================
+    # Year over Year
+    # =====================================================
+
+    elif (
+        "yoy" in q
+        or "year over year" in q
+        or "this week" in q
+        or "same week" in q
+        or "lead funnel" in q
+        or ("compare" in q and (len(years) >= 2 or len(dates) >= 2))
+    ):
+
+        if not dates and not years and not ("this week" in q or "same week" in q or "lead funnel" in q):
+            return "Please provide one date, two dates, or two years."
+
+        return get_yoy(question)
+
+    # =====================================================
     # Week over Week
     # =====================================================
 
@@ -62,16 +80,6 @@ def analytics_agent(question: str):
             return "Please provide a date in YYYY-MM-DD format."
 
         return get_wow(date)
-
-    # =====================================================
-    # Year over Year
-    # =====================================================
-
-    elif (
-        "yoy" in q
-        or "year over year" in q
-        or ("compare" in q and (len(years) >= 2 or len(dates) >= 2))
-    ):
 
         if not dates and not years:
             return "Please provide one date, two dates, or two years."

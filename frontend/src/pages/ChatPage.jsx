@@ -26,23 +26,23 @@ function ChatPage() {
         ]);
 
         try {
-
             const response = await api.post("/chat", {
                 question
             });
+
+            const botText = response.data.answer || "No answer";
 
             setMessages(prev => [
                 ...prev,
                 {
                     sender: "bot",
-                    text: response.data.answer
+                    text: botText
                 }
             ]);
 
         }
 
         catch {
-
             setMessages(prev => [
                 ...prev,
                 {

@@ -1,9 +1,17 @@
 import re
+from datetime import datetime, timedelta
 
 from src.config.spark_session import create_spark_session
 from backend.tools.snapshot_tool import get_snapshot
 
 spark = create_spark_session()
+
+
+def _get_week_range(reference_date: str):
+    dt = datetime.strptime(reference_date, "%Y-%m-%d")
+    start = dt - timedelta(days=dt.weekday())
+    end = start + timedelta(days=6)
+    return start.strftime("%Y-%m-%d"), end.strftime("%Y-%m-%d")
 
 
 def get_yoy(question: str):
@@ -12,6 +20,65 @@ def get_yoy(question: str):
 
     dates = re.findall(r"\d{4}-\d{2}-\d{2}", question)
     years = re.findall(r"\b20\d{2}\b", question)
+    q = question.lower()
+
+    if "this week" in q or "same week" in q or "lead funnel" in q:
+        reference_date = dates[0] if dates else "2024-01-15"
+        week_start, week_end = _get_week_range(reference_date)
+        last_year_start = (datetime.strptime(reference_date, "%Y-%m-%d") - timedelta(days=365)).strftime("%Y-%m-%d")
+        last_year_end = (datetime.strptime(last_year_start, "%Y-%m-%d") + timedelta(days=6)).strftime("%Y-%m-%d")
+
+        current_week = spark.sql(f"""
+            SELECT
+                SUM(leads) AS leads,
+                SUM(orders) AS orders,
+                SUM(revenue) AS revenue
+            FROM local.gold.gold_daily_funnel
+            WHERE full_date BETWEEN DATE('{week_start}') AND DATE('{week_end}')
+        """).first()
+
+        previous_week = spark.sql(f"""
+            SELECT
+                SUM(leads) AS leads,
+                SUM(orders) AS orders,
+                SUM(revenue) AS revenue
+            FROM local.gold.gold_daily_funnel
+            WHERE full_date BETWEEN DATE('{last_year_start}') AND DATE('{last_year_end}')
+        """).first()
+
+        current_leads = float(current_week["leads"] or 0)
+        prior_leads = float(previous_week["leads"] or 0)
+        current_orders = float(current_week["orders"] or 0)
+        prior_orders = float(previous_week["orders"] or 0)
+        current_revenue = float(current_week["revenue"] or 0)
+        prior_revenue = float(previous_week["revenue"] or 0)
+
+        return f"""
+YoY Weekly Funnel Comparison
+
+Date Range : {week_start} to {week_end}
+Previous-Year Range : {last_year_start} to {last_year_end}
+
+Leads
+Current Week : {current_leads:,.0f}
+Last Year Same Week : {prior_leads:,.0f}
+YoY Difference : {current_leads - prior_leads:,.0f}
+
+Orders
+Current Week : {current_orders:,.0f}
+Last Year Same Week : {prior_orders:,.0f}
+YoY Difference : {current_orders - prior_orders:,.0f}
+
+Revenue
+Current Week : ${current_revenue:,.2f}
+Last Year Same Week : ${prior_revenue:,.2f}
+YoY Difference : ${current_revenue - prior_revenue:,.2f}
+
+Source Table : local.gold.gold_daily_funnel
+Snapshot ID : {snapshot['snapshot_id']}
+Committed At : {snapshot['committed_at']}
+As-of Date : {snapshot['committed_at'][:10]}
+"""
 
     # ==========================================================
     # Compare Two Years

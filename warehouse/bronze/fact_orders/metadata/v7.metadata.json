@@ -1,9 +1,9 @@
 {
   "format-version" : 2,
-  "table-uuid" : "045940fd-7364-4c95-886e-d3ca8bbc4dfb",
+  "table-uuid" : "0a11bac5-0a23-437b-8c6e-e737cbee6c09",
   "location" : "warehouse/bronze/fact_orders",
   "last-sequence-number" : 7,
-  "last-updated-ms" : 1783308962911,
+  "last-updated-ms" : 1784008795475,
   "last-column-id" : 11,
   "current-schema-id" : 0,
   "schemas" : [ {
@@ -86,20 +86,20 @@
     "owner" : "nishan.duwal",
     "write.parquet.compression-codec" : "zstd"
   },
-  "current-snapshot-id" : 5661545675768701551,
+  "current-snapshot-id" : 9019873256123922845,
   "refs" : {
     "main" : {
-      "snapshot-id" : 5661545675768701551,
+      "snapshot-id" : 9019873256123922845,
       "type" : "branch"
     }
   },
   "snapshots" : [ {
     "sequence-number" : 1,
-    "snapshot-id" : 1823100703727175782,
-    "timestamp-ms" : 1783308944631,
+    "snapshot-id" : 9020749769501366473,
+    "timestamp-ms" : 1784008777327,
     "summary" : {
       "operation" : "append",
-      "spark.app.id" : "local-1783308870963",
+      "spark.app.id" : "local-1784008685424",
       "added-data-files" : "42",
       "added-records" : "64",
       "added-files-size" : "133470",
@@ -111,16 +111,16 @@
       "total-position-deletes" : "0",
       "total-equality-deletes" : "0"
     },
-    "manifest-list" : "warehouse/bronze/fact_orders/metadata/snap-1823100703727175782-1-1fd01f79-29f7-4cf8-ae41-815f8664a619.avro",
+    "manifest-list" : "warehouse/bronze/fact_orders/metadata/snap-9020749769501366473-1-88bba793-3bfb-4651-bf59-a4c92f94a0a2.avro",
     "schema-id" : 0
   }, {
     "sequence-number" : 2,
-    "snapshot-id" : 2187814970472409422,
-    "parent-snapshot-id" : 1823100703727175782,
-    "timestamp-ms" : 1783308946631,
+    "snapshot-id" : 5890128990000503771,
+    "parent-snapshot-id" : 9020749769501366473,
+    "timestamp-ms" : 1784008779265,
     "summary" : {
       "operation" : "append",
-      "spark.app.id" : "local-1783308870963",
+      "spark.app.id" : "local-1784008685424",
       "added-data-files" : "148",
       "added-records" : "294",
       "added-files-size" : "476416",
@@ -132,16 +132,16 @@
       "total-position-deletes" : "0",
       "total-equality-deletes" : "0"
     },
-    "manifest-list" : "warehouse/bronze/fact_orders/metadata/snap-2187814970472409422-1-7d58bbd3-08e7-4a57-a2b3-3d054cef560e.avro",
+    "manifest-list" : "warehouse/bronze/fact_orders/metadata/snap-5890128990000503771-1-a6f6f6da-428b-4828-9666-c1790936647e.avro",
     "schema-id" : 0
   }, {
     "sequence-number" : 3,
-    "snapshot-id" : 676103181257482033,
-    "parent-snapshot-id" : 2187814970472409422,
-    "timestamp-ms" : 1783308949340,
+    "snapshot-id" : 2666289726582305663,
+    "parent-snapshot-id" : 5890128990000503771,
+    "timestamp-ms" : 1784008781779,
     "summary" : {
       "operation" : "append",
-      "spark.app.id" : "local-1783308870963",
+      "spark.app.id" : "local-1784008685424",
       "added-data-files" : "228",
       "added-records" : "544",
       "added-files-size" : "742333",
@@ -153,16 +153,16 @@
       "total-position-deletes" : "0",
       "total-equality-deletes" : "0"
     },
-    "manifest-list" : "warehouse/bronze/fact_orders/metadata/snap-676103181257482033-1-17bc1342-d74f-48b0-b084-1e45169720d5.avro",
+    "manifest-list" : "warehouse/bronze/fact_orders/metadata/snap-2666289726582305663-1-f630eda6-28ce-46af-bb2d-a5a6ef758d64.avro",
     "schema-id" : 0
   }, {
     "sequence-number" : 4,
-    "snapshot-id" : 1772157158392452136,
-    "parent-snapshot-id" : 676103181257482033,
-    "timestamp-ms" : 1783308952049,
+    "snapshot-id" : 5725658017425321577,
+    "parent-snapshot-id" : 2666289726582305663,
+    "timestamp-ms" : 1784008784568,
     "summary" : {
       "operation" : "append",
-      "spark.app.id" : "local-1783308870963",
+      "spark.app.id" : "local-1784008685424",
       "added-data-files" : "247",
       "added-records" : "711",
       "added-files-size" : "810468",
@@ -174,16 +174,16 @@
       "total-position-deletes" : "0",
       "total-equality-deletes" : "0"
     },
-    "manifest-list" : "warehouse/bronze/fact_orders/metadata/snap-1772157158392452136-1-43cd93a6-8451-46be-92d8-2872968361c6.avro",
+    "manifest-list" : "warehouse/bronze/fact_orders/metadata/snap-5725658017425321577-1-0a290487-7da7-4de3-bb1f-8bab1538f05a.avro",
     "schema-id" : 0
   }, {
     "sequence-number" : 5,
-    "snapshot-id" : 6381546360644404650,
-    "parent-snapshot-id" : 1772157158392452136,
-    "timestamp-ms" : 1783308955387,
+    "snapshot-id" : 7144800243856485908,
+    "parent-snapshot-id" : 5725658017425321577,
+    "timestamp-ms" : 1784008787867,
     "summary" : {
       "operation" : "append",
-      "spark.app.id" : "local-1783308870963",
+      "spark.app.id" : "local-1784008685424",
       "added-data-files" : "308",
       "added-records" : "1134",
       "added-files-size" : "1026192",
@@ -195,16 +195,16 @@
       "total-position-deletes" : "0",
       "total-equality-deletes" : "0"
     },
-    "manifest-list" : "warehouse/bronze/fact_orders/metadata/snap-6381546360644404650-1-254bd41e-b853-4d2d-b36c-14132da9e3ac.avro",
+    "manifest-list" : "warehouse/bronze/fact_orders/metadata/snap-7144800243856485908-1-ee4b8483-e45d-4bf2-b0e8-8c2edfdaa2e4.avro",
     "schema-id" : 0
   }, {
     "sequence-number" : 6,
-    "snapshot-id" : 8186098489326803325,
-    "parent-snapshot-id" : 6381546360644404650,
-    "timestamp-ms" : 1783308959033,
+    "snapshot-id" : 9040253069857471650,
+    "parent-snapshot-id" : 7144800243856485908,
+    "timestamp-ms" : 1784008791695,
     "summary" : {
       "operation" : "append",
-      "spark.app.id" : "local-1783308870963",
+      "spark.app.id" : "local-1784008685424",
       "added-data-files" : "324",
       "added-records" : "1439",
       "added-files-size" : "1091814",
@@ -216,16 +216,16 @@
       "total-position-deletes" : "0",
       "total-equality-deletes" : "0"
     },
-    "manifest-list" : "warehouse/bronze/fact_orders/metadata/snap-8186098489326803325-1-3b6b0eb3-b2e2-49d2-a06e-148ed9776d87.avro",
+    "manifest-list" : "warehouse/bronze/fact_orders/metadata/snap-9040253069857471650-1-3cba29a5-123b-4570-8058-bf0adece2267.avro",
     "schema-id" : 0
   }, {
     "sequence-number" : 7,
-    "snapshot-id" : 5661545675768701551,
-    "parent-snapshot-id" : 8186098489326803325,
-    "timestamp-ms" : 1783308962911,
+    "snapshot-id" : 9019873256123922845,
+    "parent-snapshot-id" : 9040253069857471650,
+    "timestamp-ms" : 1784008795475,
     "summary" : {
       "operation" : "append",
-      "spark.app.id" : "local-1783308870963",
+      "spark.app.id" : "local-1784008685424",
       "added-data-files" : "339",
       "added-records" : "1636",
       "added-files-size" : "1144223",
@@ -237,50 +237,50 @@
       "total-position-deletes" : "0",
       "total-equality-deletes" : "0"
     },
-    "manifest-list" : "warehouse/bronze/fact_orders/metadata/snap-5661545675768701551-1-c6dc5c3b-1af0-428e-938e-f9fe56cc44e2.avro",
+    "manifest-list" : "warehouse/bronze/fact_orders/metadata/snap-9019873256123922845-1-52fd4c22-ca57-408b-94f6-a07cd86533bc.avro",
     "schema-id" : 0
   } ],
   "statistics" : [ ],
   "partition-statistics" : [ ],
   "snapshot-log" : [ {
-    "timestamp-ms" : 1783308944631,
-    "snapshot-id" : 1823100703727175782
+    "timestamp-ms" : 1784008777327,
+    "snapshot-id" : 9020749769501366473
   }, {
-    "timestamp-ms" : 1783308946631,
-    "snapshot-id" : 2187814970472409422
+    "timestamp-ms" : 1784008779265,
+    "snapshot-id" : 5890128990000503771
   }, {
-    "timestamp-ms" : 1783308949340,
-    "snapshot-id" : 676103181257482033
+    "timestamp-ms" : 1784008781779,
+    "snapshot-id" : 2666289726582305663
   }, {
-    "timestamp-ms" : 1783308952049,
-    "snapshot-id" : 1772157158392452136
+    "timestamp-ms" : 1784008784568,
+    "snapshot-id" : 5725658017425321577
   }, {
-    "timestamp-ms" : 1783308955387,
-    "snapshot-id" : 6381546360644404650
+    "timestamp-ms" : 1784008787867,
+    "snapshot-id" : 7144800243856485908
   }, {
-    "timestamp-ms" : 1783308959033,
-    "snapshot-id" : 8186098489326803325
+    "timestamp-ms" : 1784008791695,
+    "snapshot-id" : 9040253069857471650
   }, {
-    "timestamp-ms" : 1783308962911,
-    "snapshot-id" : 5661545675768701551
+    "timestamp-ms" : 1784008795475,
+    "snapshot-id" : 9019873256123922845
   } ],
   "metadata-log" : [ {
-    "timestamp-ms" : 1783308944631,
+    "timestamp-ms" : 1784008777327,
     "metadata-file" : "warehouse/bronze/fact_orders/metadata/v1.metadata.json"
   }, {
-    "timestamp-ms" : 1783308946631,
+    "timestamp-ms" : 1784008779265,
     "metadata-file" : "warehouse/bronze/fact_orders/metadata/v2.metadata.json"
   }, {
-    "timestamp-ms" : 1783308949340,
+    "timestamp-ms" : 1784008781779,
     "metadata-file" : "warehouse/bronze/fact_orders/metadata/v3.metadata.json"
   }, {
-    "timestamp-ms" : 1783308952049,
+    "timestamp-ms" : 1784008784568,
     "metadata-file" : "warehouse/bronze/fact_orders/metadata/v4.metadata.json"
   }, {
-    "timestamp-ms" : 1783308955387,
+    "timestamp-ms" : 1784008787867,
     "metadata-file" : "warehouse/bronze/fact_orders/metadata/v5.metadata.json"
   }, {
-    "timestamp-ms" : 1783308959033,
+    "timestamp-ms" : 1784008791695,
     "metadata-file" : "warehouse/bronze/fact_orders/metadata/v6.metadata.json"
   } ]
 }
