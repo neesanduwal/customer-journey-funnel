@@ -161,7 +161,20 @@ These entities are connected through relationships that allow the system to trac
 
 ---
 
-# 💬 Example Questions
+# � Future Improvements
+
+Possible enhancements for this project include:
+
+- Add more real-world customer and transaction datasets for richer analysis
+- Extend the analytics assistant to support more complex funnel and cohort questions
+- Improve the Power BI dashboard with additional executive and operational views
+- Add automated alerts and monitoring for data quality and pipeline health
+- Support deployment to cloud storage and containerized environments
+- Expand the project with more advanced forecasting and anomaly detection features
+
+---
+
+# �💬 Example Questions
 
 Users can ask the assistant questions such as:
 
