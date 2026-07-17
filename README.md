@@ -24,7 +24,8 @@ The main objectives of this project are:
 ---
 
 # 🏗️ System Architecture
-![Customer Journey Funnel Architecture](D:\customer-journey-funnel\Image\Architecture.png)
+
+![Customer Journey Funnel Architecture](image/archi.png)
 
 The project follows a layered analytics architecture with the following components:
 
