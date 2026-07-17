@@ -1,180 +1,178 @@
-# Customer Journey Funnel
+# 🧭 Customer Journey Funnel
 
-Customer Journey Funnel is a full-stack analytics and AI assistant project that turns synthetic customer journey data into actionable funnel insights. The platform combines a data engineering pipeline, a conversational analytics agent, and a React-based frontend so users can explore metrics such as revenue, orders, running totals, week-over-week changes, and year-over-year comparisons.
+## 📌 Project Overview
 
-## What this project does
+Customer Journey Funnel is a full-stack analytics and AI assistant project that turns synthetic customer journey data into actionable funnel insights. The project combines data engineering, analytics, and conversational AI so that users can explore business performance through natural-language questions instead of writing SQL manually.
 
-- Generates synthetic customer, product, channel, and transaction data
-- Loads that data into PostgreSQL
-- Builds a Bronze → Silver → Gold data lakehouse flow with Apache Spark and Iceberg
-- Exposes business metrics through a FastAPI backend
-- Lets users ask questions in natural language through a chat UI powered by an analytics agent
+The workflow begins with synthetic data representing customers, products, channels, dates, orders, web events, and lead events. This data is ingested into PostgreSQL and transformed into a lakehouse-style architecture using Apache Spark and Apache Iceberg. The result is a layered data model with Bronze, Silver, and Gold tables that supports reporting and advanced funnel analysis.
 
-## Architecture overview
+This repository demonstrates how raw event data can be cleaned, structured, and exposed through an interactive interface for everyday business analysis.
 
-- Data generation: synthetic CSV files under the data/raw folder
-- Storage: PostgreSQL for operational loading and Spark/Iceberg for lakehouse tables
-- Backend: FastAPI service with route-based chat and metrics endpoints
-- AI layer: a rule-based analytics agent with optional LLM fallback
-- Frontend: React + Vite chat application
+---
 
-## Tech stack
+# 🎯 Objectives
+
+The main objectives of this project are:
+
+- Build a complete data pipeline for customer journey analytics
+- Generate synthetic customer, product, channel, and transaction data
+- Load data into PostgreSQL and Apache Iceberg tables
+- Create Bronze, Silver, and Gold layers for analytics
+- Expose business metrics through a conversational analytics assistant
+- Support questions about revenue, orders, running totals, and trend comparisons
+
+---
+
+# 🏗️ System Architecture
+
+The project follows a layered analytics architecture with the following components:
+
+- Data generation and ingestion from raw CSV files stored in the data folder
+- PostgreSQL for relational storage and initial loading of business data
+- Apache Spark and Apache Iceberg for lakehouse-style table storage and transformation
+- Partitioned Iceberg tables to improve query performance and support efficient time-based analytics
+- A FastAPI backend for serving analytics endpoints and agent logic
+- A React + Vite frontend for interacting with the assistant and viewing results
+- A Power BI page for visualizing funnel performance, running trends, and year-over-year / week-over-week comparisons
+
+This architecture makes it possible to move from raw source data to business-ready metrics in a structured and extendable way.
+
+---
+
+# 🔄 Data Pipeline
+
+The project works through the following flow:
+
+1. Generate synthetic datasets for dimensions and fact events.
+2. Load the data into PostgreSQL for relational processing.
+3. Create Bronze tables in Apache Iceberg for raw and lightly processed data.
+4. Transform those tables into Silver and Gold layers for analytics.
+5. Expose the resulting metrics through a FastAPI backend and a chat-based interface.
+
+This pipeline allows the project to simulate the full lifecycle of an analytics platform, from ingestion to insight.
+
+---
+
+# 📁 Project Structure
+
+The repository is organized into the main components below:
+
+- backend/: FastAPI application, analytics agent, metric tools, and LLM-related services
+- frontend/: React + Vite frontend for the chat experience
+- src/: ingestion scripts, transformation scripts, Spark configuration, and Iceberg utilities
+- data/raw/: generated CSV files used as the source datasets
+- warehouse/: Iceberg warehouse containing Bronze, Silver, and Gold tables
+
+---
+
+# 🛠️ Technology Stack
 
 - Python
+- FastAPI
 - Apache Spark
 - Apache Iceberg
 - PostgreSQL
-- FastAPI
 - React + Vite
-- Groq / LangChain-based LLM integration
+- Groq / LLM-based integration
 
-## Project structure
+---
 
-- backend/: FastAPI app, analytics agent, metric tools, and LLM service
-- frontend/: Vite + React frontend for chatting with the analytics assistant
-- src/: data ingestion, Spark config, and transformation scripts
-- data/raw/: generated CSV files used for ingestion
-- warehouse/: Iceberg warehouse for Bronze, Silver, and Gold tables
-- docs/: project evolution notes and documentation
+# ✨ Features
 
-## Prerequisites
+- Generate synthetic customer journey data across customers, products, channels, orders, and events
+- Load data into PostgreSQL for initial processing and relational storage
+- Create Bronze, Silver, and Gold layers for analytics and reporting
+- Use partitioned Iceberg tables for efficient time-based analysis of funnel events
+- Support analytics queries for revenue, orders, funnel metrics, and trend analysis
+- Provide a chat-based assistant for natural language questions about funnel performance
+- Display metrics such as running totals, week-over-week changes, and year-over-year comparisons
+- Include a Power BI page for funnel progression, running trends, and YoY/WoW insights
 
-Before running the project, make sure you have:
+---
 
-- Python 3.10+ installed
-- Node.js and npm installed
-- PostgreSQL running locally
-- Java installed for Spark
-- A Groq API key in a .env file
+# 📊 Power BI Dashboard
 
-## Environment setup
+The Power BI dashboard is built on top of the Gold Layer of the lakehouse using PostgreSQL as the semantic model source. It provides an interactive view of the customer journey funnel and revenue performance through KPI cards, trend analysis, and business visualizations.
 
-1. Create and activate a Python virtual environment
-   - python -m venv .venv
-   - .venv\Scripts\Activate.ps1
+## Features
 
-2. Install Python dependencies
-   - pip install -r backend/requirements.txt
+- Interactive filters for year, month, channel, product, and region
+- Funnel performance dashboard covering website sessions, total leads, total orders, conversion rate, and funnel progression from visit to order
+- Running total revenue dashboard showing current-year revenue, last-year revenue, YoY change, YoY growth percentage, monthly comparison, top products, and regional revenue distribution
 
-3. Install frontend dependencies
-   - cd frontend
-   - npm install
+## DAX Measures
 
-4. Create a .env file in the project root with:
-   - GROQ_API_KEY=your_key_here
-   - MODEL_NAME=your_model_name_here
+The semantic model includes analytical measures such as:
 
-5. Make sure PostgreSQL has a database named customer_journey_funnel
-   - The project currently expects the local PostgreSQL user postgres with password Sql123
+- Total Revenue
+- Running Revenue (Current Year)
+- Running Revenue (Previous Year)
+- Revenue LY
+- YoY Revenue Change
+- YoY Growth Percentage
+- Total Orders
+- Website Sessions
+- Total Leads
+- Conversion Rate
 
-## Data pipeline
+## Data Model
 
-### Partitioning in this project
+The report follows a star schema with fact tables for orders, lead events, and web events, and dimension tables for date, customer, product, and channel. These relationships support efficient filtering, time intelligence calculations, and interactive reporting.
 
-Partitioning is used to organize large fact tables in Iceberg so Spark can read and write data more efficiently. Instead of treating the data as one big table, the project splits it by event date.
+### Star Schema Explanation
 
-Why this helps:
+In this model:
 
-- Faster queries when filtering by date
-- Better pruning, so Spark reads only the relevant partitions
-- Lower memory pressure during writes
-- Improved scalability for larger datasets
+- Fact tables store measurable business events such as web visits, lead events, and completed orders.
+- Dimension tables store descriptive attributes such as date, customer, product, and channel.
+- The dimensions connect to the facts to enable slicing and dicing by time, customer segment, product, and acquisition channel.
+- This structure makes it easier to build dashboards, calculate running totals, and compare performance over time using Power BI and DAX.
 
-In this repository, the Bronze fact tables such as fact_web_events, fact_lead_events, and fact_orders are partitioned by event_date. The loader processes one year at a time so the write workload stays manageable and avoids memory issues on smaller machines.
+## Technologies Used
 
-This is especially useful for analytics workloads like customer journey tracking, where most questions are time-based and only a limited date range is needed.
+- Microsoft Power BI Desktop
+- DAX (Data Analysis Expressions)
+- PostgreSQL as the semantic model source
+- Star schema data model
 
-### 1) Generate synthetic data
+## Dashboard Highlights
 
-Run:
+- Interactive slicers for dynamic filtering
+- Running total and year-over-year revenue analysis
+- Funnel analytics from website session to order completion
+- Product and regional performance insights
+- Clean executive-style dashboard layout with KPI indicators
 
-- python -m src.ingestion.generate_synthetic_data
+---
 
-This creates CSV files in data/raw for dimensions and fact tables.
+# 🧩 ER Diagram
 
-### 2) Load data into PostgreSQL
+The data model is organized around a set of core entities and transactional fact tables that describe the customer journey:
 
-Run:
+- Date: stores calendar information such as year, month, and day to support time-based reporting and trend analysis.
+- Customer: represents each customer and includes business attributes such as region and segment.
+- Product: captures product-related details used for sales and funnel analysis.
+- Channel: represents the traffic or acquisition source such as web, email, or paid campaigns.
+- Fact Web Events: records website interactions such as sessions and event types performed by customers.
+- Fact Lead Events: stores lead-related events such as lead creation and lead status changes.
+- Fact Orders: captures completed orders with revenue, quantity, and order status.
 
-- python -m src.ingestion.load_to_postgres
+These entities are connected through relationships that allow the system to trace the customer journey from initial web interaction to lead generation and final purchase. The structure supports funnel analysis, revenue reporting, and time-based comparison across channels, products, and customer segments.
 
-This loads the generated CSVs into PostgreSQL and resolves business-key to surrogate-key relationships.
+---
 
-### 3) Build Bronze layer in Iceberg
+# 💬 Example Questions
 
-Run:
+Users can ask the assistant questions such as:
 
-- python -m src.ingestion.bronze_loader
+- What was revenue on a specific date?
+- Show me orders for a given day or period.
+- What is the running total for the selected range?
+- Compare this week’s performance with the same week last year.
+- Explain the funnel trend from lead to order.
 
-### 4) Build Silver layer in Iceberg
+---
 
-Run:
+# 👨‍💻 Author
 
-- python -m src.transformations.silver_loader
-
-### 5) Build Gold layer in Iceberg
-
-Run:
-
-- python -m src.transformations.gold_loader
-
-## Run the application
-
-### Start the backend
-
-Run:
-
-- uvicorn backend.app:app --reload
-
-The backend will be available at http://127.0.0.1:8000.
-
-### Start the frontend
-
-Run:
-
-- cd frontend
-- npm run dev
-
-The frontend will be available in the Vite dev server.
-
-## Example questions
-
-You can ask the assistant questions such as:
-
-- What was revenue on 2024-01-15?
-- Show me orders for 2024-01-15.
-- What is the running total for 2024-01-15?
-- Compare this week’s lead funnel to the same week last year.
-- Show me week-over-week performance for 2024-01-15.
-
-## Testing
-
-Run the backend metrics tests with:
-
-- python -m unittest backend.tests.test_metrics_tools
-
-## Requirement proof: Iceberg partitioning and partition evolution
-
-This project satisfies the requirement to:
-
-1. load data into Iceberg with daily partitioning, and
-2. evolve the partitioning scheme from daily to monthly while preserving historical data.
-
-The implementation is in [src/ingestion/bronze_loader.py](src/ingestion/bronze_loader.py) and [src/iceberg/partition_evolution.py](src/iceberg/partition_evolution.py).
-
-Verified evidence:
-
-- The Bronze fact table was rebuilt with daily partitioning before the evolution step.
-- The partition evolution script completed successfully and reported: “Performing partition evolution: DAY → MONTH” and “✓ Partition evolution complete.”
-- The explain outputs were captured in [docs/explain_before_evolution.txt](docs/explain_before_evolution.txt) and [docs/explain_after_evolution.txt](docs/explain_after_evolution.txt).
-- The snapshot history showed append-based Iceberg operations rather than a full rewrite, which is consistent with metadata-only partition evolution and confirms that historical files were not rewritten.
-
-## Notes
-
-- The project uses a local Spark session configured for a laptop-friendly setup with tuned memory settings.
-- The Iceberg warehouse is stored under the warehouse folder.
-- The analytics agent uses rule-based routing for common metrics and falls back to an LLM for broader questions.
-
-## Summary
-
-This repository demonstrates how to combine data engineering, analytics, and conversational AI in a single project. It is designed as a practical example of building a customer journey funnel intelligence system from synthetic data all the way through to a user-facing chat experience.
+Nishan Duwal
