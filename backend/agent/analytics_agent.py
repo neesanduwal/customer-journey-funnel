@@ -7,6 +7,7 @@ from backend.tools.orders_tool import get_orders
 from backend.tools.running_total_tool import get_running_total
 from backend.tools.wow_tool import get_wow
 from backend.tools.yoy_tool import get_yoy
+from backend.tools.customer_tool import get_customer_summary
 
 
 def analytics_agent(question: str):
@@ -17,6 +18,13 @@ def analytics_agent(question: str):
     years = re.findall(r"\b20\d{2}\b", question)
 
     date = dates[0] if dates else None
+
+    # =====================================================
+    # Customer insights
+    # =====================================================
+
+    if "customer" in q or "customers" in q or "segment" in q or "segment" in q:
+        return get_customer_summary(question)
 
     # =====================================================
     # Revenue
