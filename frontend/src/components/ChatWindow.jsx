@@ -8,8 +8,8 @@ function ChatWindow({ messages }) {
             style={{
                 flex: 1,
                 overflowY: "auto",
-                padding: 20,
-                background: "#f5f5f5"
+                padding: "24px 20px",
+                background: "transparent"
             }}
         >
 

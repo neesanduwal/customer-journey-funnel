@@ -1,10 +1,19 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Segoe UI, sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inter, "Segoe UI", Roboto, sans-serif;
 }
 
-body{
-    background:#f5f5f5;
+html, body, #root {
+    height: 100%;
+}
+
+body {
+    background: linear-gradient(135deg, #f6f8ff 0%, #eef4ff 45%, #f8fbff 100%);
+    color: #0f172a;
+}
+
+button, input {
+    font: inherit;
 }

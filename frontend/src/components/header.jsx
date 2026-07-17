@@ -2,13 +2,14 @@ function Header() {
     return (
         <div
             style={{
-                background: "#1e293b",
+                background: "linear-gradient(90deg, #0f172a 0%, #1d4ed8 100%)",
                 color: "white",
-                padding: "18px",
-                fontSize: "24px",
-                fontWeight: "bold",
+                padding: "18px 24px",
+                fontSize: "22px",
+                fontWeight: 700,
                 textAlign: "center",
-                boxShadow: "0 2px 8px rgba(0,0,0,.2)"
+                boxShadow: "0 10px 30px rgba(15, 23, 42, 0.18)",
+                letterSpacing: "0.02em"
             }}
         >
             🤖 Customer Journey AI

@@ -81,6 +81,46 @@ As-of Date : {snapshot['committed_at'][:10]}
 """
 
     # ==========================================================
+    # Compare a Single Year to Its Previous Year
+    # ==========================================================
+
+    if len(years) == 1:
+
+        target_year = years[0]
+
+        row = spark.sql(f"""
+        SELECT
+            SUM(revenue) AS revenue,
+            SUM(last_year) AS last_year,
+            SUM(yoy_difference) AS yoy_difference
+        FROM local.gold.gold_year_over_year
+        WHERE YEAR(full_date) = {target_year}
+        """).first()
+
+        if row is None or (row['revenue'] is None and row['last_year'] is None and row['yoy_difference'] is None):
+            return f"No YoY data found for {target_year}"
+
+        return f"""
+YoY Comparison
+
+Year : {target_year}
+
+Current Year Revenue : ${row['revenue']:,.2f}
+
+Previous Year Revenue : ${row['last_year']:,.2f}
+
+YoY Change : ${row['yoy_difference']:,.2f}
+
+Source Table : local.gold.gold_year_over_year
+
+Snapshot ID : {snapshot["snapshot_id"]}
+
+Committed At : {snapshot["committed_at"]}
+
+As-of Date : {snapshot["committed_at"][:10]}
+"""
+
+    # ==========================================================
     # Compare Two Years
     # ==========================================================
 
@@ -127,16 +167,6 @@ Revenue : ${row2['revenue']:,.2f}
 Last Year Revenue : ${row2['last_year']:,.2f}
 
 YoY Difference : ${row2['yoy_difference']:,.2f}
-
-----------------------------------------
-
-Revenue Difference
-
-${row1['revenue']-row2['revenue']:,.2f}
-
-YoY Difference Gap
-
-${row1['yoy_difference']-row2['yoy_difference']:,.2f}
 
 Source Table : local.gold.gold_year_over_year
 

@@ -60,7 +60,10 @@ function ChatPage() {
         <div style={{
             display: "flex",
             flexDirection: "column",
-            height: "100vh"
+            height: "100vh",
+            maxWidth: "1200px",
+            margin: "0 auto",
+            padding: "24px"
         }}>
 
             <Header />
