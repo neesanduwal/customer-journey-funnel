@@ -188,6 +188,102 @@ Users can ask the assistant questions such as:
 
 ---
 
-# 👨‍💻 Author
+# � Setup & Run Instructions
+
+## Prerequisites
+
+- Python 3.10+ (recommended 3.11)
+- Node.js 18+ and npm
+- PostgreSQL running locally on port 5432
+- Java 17+ (required by Spark / Iceberg)
+- A Groq API key for the conversational assistant
+
+## 1. Clone and enter the repository
+
+```bash
+git clone <repository-url>
+cd customer-journey-funnel
+```
+
+## 2. Create and activate a Python environment
+
+On Windows PowerShell:
+
+```powershell
+python -m venv .venv
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
+.\.venv\Scripts\Activate.ps1
+```
+
+Install Python dependencies from the repository root:
+
+```bash
+pip install -r backend/requirements.txt
+```
+
+## 3. Configure environment variables
+
+Create a .env file in the project root with your Groq credentials:
+
+```env
+GROQ_API_KEY=your_groq_api_key
+MODEL_NAME=your_groq_model_name
+```
+
+The backend expects these values when it initializes the LLM client.
+
+## 4. Prepare the local database
+
+Make sure PostgreSQL is running and create a database named:
+
+```sql
+CREATE DATABASE customer_journey_funnel;
+```
+
+The ingestion scripts expect the default local PostgreSQL connection defined in src/config/postgres.py.
+
+## 5. Run the data pipeline (optional but recommended)
+
+From the repository root, run:
+
+```bash
+python -m src.ingestion.generate_synthetic_data
+python -m src.ingestion.load_to_postgres
+python -m src.ingestion.bronze_loader
+```
+
+These commands generate the sample data, load it into PostgreSQL, and build the initial Bronze layer used by the analytics workflow.
+
+## 6. Start the backend
+
+Open a terminal at the repository root and run:
+
+```bash
+cd backend
+uvicorn app:app --reload --host 0.0.0.0 --port 8000
+```
+
+The API will be available at http://localhost:8000.
+
+## 7. Start the frontend
+
+Open a second terminal and run:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+The frontend will be served at http://localhost:5173.
+
+## 8. Open the app
+
+- Open the frontend in your browser to interact with the chat assistant.
+- Use the backend API at http://localhost:8000 for direct requests or debugging.
+
+---
+
+# �👨‍💻 Author
 
 Nishan Duwal
