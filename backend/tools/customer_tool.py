@@ -1,13 +1,23 @@
+import re
+
 from src.config.spark_session import create_spark_session
 from backend.tools.snapshot_tool import get_snapshot
 
-spark = create_spark_session()
+
+def _extract_top_n(question: str, default: int = 10) -> int:
+    q = (question or "").lower()
+    match = re.search(r"\btop\s+(\d+)\b", q)
+    if match:
+        return max(1, min(int(match.group(1)), 100))
+    return default
 
 
 def get_customer_summary(question: str = ""):
+    spark = create_spark_session()
     snapshot = get_snapshot("local.gold.gold_customer_funnel")
+    top_n = _extract_top_n(question, default=10)
 
-    rows = spark.sql("""
+    rows = spark.sql(f"""
         SELECT
             customer_id,
             customer_name,
@@ -19,13 +29,13 @@ def get_customer_summary(question: str = ""):
             total_revenue
         FROM local.gold.gold_customer_funnel
         ORDER BY total_revenue DESC
-        LIMIT 10
+        LIMIT {top_n}
     """).collect()
 
     if not rows:
         return "No customer data found."
 
-    lines = ["Customer Funnel Summary", "", "Top Customers", ""]
+    lines = ["Customer Funnel Summary", "", f"Top {top_n} Customers", ""]
 
     for row in rows:
         lines.append(
